@@ -20,7 +20,7 @@ fun ColumnScope.sheetHandle() {
         modifier = Modifier
             .width(50.dp)
             .height(4.dp)
-            .background(color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaLowContrast), CircleShape)
+            .background(color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaLowContrast), CircleShape)
             .align(Alignment.CenterHorizontally),
     )
 }

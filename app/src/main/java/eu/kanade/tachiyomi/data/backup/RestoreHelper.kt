@@ -31,12 +31,12 @@ class RestoreHelper(val context: Context) {
      */
     val progressNotification by lazy {
         NotificationCompat.Builder(context, Notifications.CHANNEL_BACKUP_RESTORE_PROGRESS)
-            .setContentTitle(context.getString(R.string.app_name_neko))
-            .setSmallIcon(R.drawable.ic_neko_notification)
+            .setContentTitle(context.getString(R.string.app_name_VietGa))
+            .setSmallIcon(R.drawable.ic_vietga_notification)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setAutoCancel(false)
-            .setColor(ContextCompat.getColor(context, R.color.new_neko_accent))
+            .setColor(ContextCompat.getColor(context, R.color.new_VietGa_accent))
             .addAction(
                 R.drawable.ic_close_24dp,
                 context.getString(android.R.string.cancel),
@@ -162,8 +162,8 @@ class RestoreHelper(val context: Context) {
                 .setContentTitle(context.getString(R.string.restore_completed))
                 .setContentText(restoreString)
                 .setStyle(NotificationCompat.BigTextStyle().bigText(restoreString))
-                .setSmallIcon(R.drawable.ic_neko_notification)
-                .setColor(ContextCompat.getColor(context, R.color.new_neko_accent))
+                .setSmallIcon(R.drawable.ic_vietga_notification)
+                .setColor(ContextCompat.getColor(context, R.color.new_VietGa_accent))
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
         if (!path.isNullOrEmpty() && !file.isNullOrEmpty()) {
             resultNotification.addAction(
@@ -191,7 +191,7 @@ class RestoreHelper(val context: Context) {
     ): File? {
         try {
             if (errors.isNotEmpty() || skippedTitles.isNotEmpty()) {
-                val destFile = File(context.externalCacheDir, "neko_restore.log")
+                val destFile = File(context.externalCacheDir, "VietGa_restore.log")
 
                 destFile.bufferedWriter().use { out ->
                     if (skippedAmount > 0) {

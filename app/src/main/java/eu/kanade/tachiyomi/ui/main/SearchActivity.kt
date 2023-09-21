@@ -26,7 +26,7 @@ import eu.kanade.tachiyomi.util.chapter.ChapterSort
 import eu.kanade.tachiyomi.util.manga.MangaMappings
 import eu.kanade.tachiyomi.util.view.withFadeTransaction
 import java.math.BigInteger
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
 import uy.kohesive.injekt.injectLazy
@@ -153,16 +153,16 @@ class SearchActivity : MainActivity() {
                             host.contains("anilist", true) -> {
                                 val dexId = mappings.getMangadexID(id, "al")
                                 when (dexId == null) {
-                                    true -> MdConstants.DeepLinkPrefix.error + "Unable to map MangaDex manga, no mapping entry found for AniList ID"
-                                    false -> MdConstants.DeepLinkPrefix.manga + dexId
+                                    true -> Constants.DeepLinkPrefix.error + "Unable to map MangaDex manga, no mapping entry found for AniList ID"
+                                    false -> Constants.DeepLinkPrefix.manga + dexId
                                 }
                             }
 
                             host.contains("myanimelist", true) -> {
                                 val dexId = mappings.getMangadexID(id, "mal")
                                 when (dexId == null) {
-                                    true -> MdConstants.DeepLinkPrefix.error + "Unable to map MangaDex manga, no mapping entry found for MyAnimeList ID"
-                                    false -> MdConstants.DeepLinkPrefix.manga + dexId
+                                    true -> Constants.DeepLinkPrefix.error + "Unable to map MangaDex manga, no mapping entry found for MyAnimeList ID"
+                                    false -> Constants.DeepLinkPrefix.manga + dexId
                                 }
                             }
 
@@ -171,25 +171,25 @@ class SearchActivity : MainActivity() {
                                 val muID = base.toString(10)
                                 val dexId = mappings.getMangadexID(muID, "mu_new")
                                 when (dexId == null) {
-                                    true -> MdConstants.DeepLinkPrefix.error + "Unable to map MangaDex manga, no mapping entry found for MangaUpdates ID"
-                                    false -> MdConstants.DeepLinkPrefix.manga + dexId
+                                    true -> Constants.DeepLinkPrefix.error + "Unable to map MangaDex manga, no mapping entry found for MangaUpdates ID"
+                                    false -> Constants.DeepLinkPrefix.manga + dexId
                                 }
                             }
 
                             path.equals("GROUP", true) -> {
-                                MdConstants.DeepLinkPrefix.group + id
+                                Constants.DeepLinkPrefix.group + id
                             }
 
                             path.equals("AUTHOR", true) -> {
-                                MdConstants.DeepLinkPrefix.author + id
+                                Constants.DeepLinkPrefix.author + id
                             }
 
                             path.equals("LIST", true) -> {
-                                MdConstants.DeepLinkPrefix.list + id
+                                Constants.DeepLinkPrefix.list + id
                             }
 
                             else -> {
-                                MdConstants.DeepLinkPrefix.manga + id
+                                Constants.DeepLinkPrefix.manga + id
                             }
                         }
                         router.replaceTopController(

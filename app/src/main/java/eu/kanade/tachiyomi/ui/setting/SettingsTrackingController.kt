@@ -19,7 +19,7 @@ import eu.kanade.tachiyomi.widget.preference.TrackLogoutDialog
 import eu.kanade.tachiyomi.widget.preference.TrackerPreference
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import uy.kohesive.injekt.injectLazy
 
 class SettingsTrackingController :
@@ -53,15 +53,15 @@ class SettingsTrackingController :
                 R.string.content_rating_pornographic,
             )
             entryValues = listOf(
-                MdConstants.ContentRating.safe,
-                MdConstants.ContentRating.suggestive,
-                MdConstants.ContentRating.erotica,
-                MdConstants.ContentRating.pornographic,
+                Constants.ContentRating.safe,
+                Constants.ContentRating.suggestive,
+                Constants.ContentRating.erotica,
+                Constants.ContentRating.pornographic,
             )
 
-            defValue = setOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive, MdConstants.ContentRating.erotica, MdConstants.ContentRating.pornographic)
+            defValue = setOf(Constants.ContentRating.safe, Constants.ContentRating.suggestive, Constants.ContentRating.erotica, Constants.ContentRating.pornographic)
 
-            defaultValue = listOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive, MdConstants.ContentRating.erotica, MdConstants.ContentRating.pornographic)
+            defaultValue = listOf(Constants.ContentRating.safe, Constants.ContentRating.suggestive, Constants.ContentRating.erotica, Constants.ContentRating.pornographic)
         }
 
         preference {

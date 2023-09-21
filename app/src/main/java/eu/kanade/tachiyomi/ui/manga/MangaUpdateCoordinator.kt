@@ -27,7 +27,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.ProducerScope
 import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.flowOn
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.domain.chapter.ChapterItem
 import org.nekomanga.domain.chapter.toSimpleChapter
@@ -105,7 +105,7 @@ class MangaUpdateCoordinator {
                                 manga.user_title = null
                             }
                         }
-                        if (networkManga.thumbnail_url != null && networkManga.thumbnail_url != originalThumbnail && originalThumbnail != MdConstants.noCoverUrl) {
+                        if (networkManga.thumbnail_url != null && networkManga.thumbnail_url != originalThumbnail && originalThumbnail != Constants.noCoverUrl) {
                             coverCache.deleteFromCache(originalThumbnail, manga.favorite)
                         }
                         db.insertManga(manga).executeOnIO()

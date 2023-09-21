@@ -64,9 +64,9 @@ import org.nekomanga.domain.manga.DisplayManga
 import org.nekomanga.presentation.components.AppBar
 import org.nekomanga.presentation.components.AppBarActions
 import org.nekomanga.presentation.components.Loading
-import org.nekomanga.presentation.components.NekoColors
-import org.nekomanga.presentation.components.NekoScaffold
-import org.nekomanga.presentation.components.NekoScaffoldType
+import org.nekomanga.presentation.components.VietGaColors
+import org.nekomanga.presentation.components.VietGaScaffold
+import org.nekomanga.presentation.components.VietGaScaffoldType
 import org.nekomanga.presentation.components.listGridAppBarAction
 import org.nekomanga.presentation.components.rememberNavBarPadding
 import org.nekomanga.presentation.components.rememberSideBarVisible
@@ -101,7 +101,6 @@ fun BrowseScreen(
     randomClick: () -> Unit,
     incognitoClick: () -> Unit,
     settingsClick: () -> Unit,
-    statsClick: () -> Unit,
     helpClick: () -> Unit,
     aboutClick: () -> Unit,
 ) {
@@ -178,11 +177,11 @@ fun BrowseScreen(
                 }
             },
         ) {
-            NekoScaffold(
+            VietGaScaffold(
                 incognitoMode = browseScreenState.value.incognitoMode,
                 isRoot = true,
                 title = browseScreenState.value.title.asString(),
-                type = NekoScaffoldType.Title,
+                type = VietGaScaffoldType.Title,
                 onNavigationIconClicked = onBackPress,
                 actions = {
                     AppBarActions(
@@ -211,7 +210,6 @@ fun BrowseScreen(
                                         incognitoMode = browseScreenState.value.incognitoMode,
                                         incognitoModeClick = incognitoClick,
                                         settingsClick = settingsClick,
-                                        statsClick = statsClick,
                                         aboutClick = aboutClick,
                                         helpClick = helpClick,
                                         menuShowing = { visible -> mainDropdownShowing = visible },
@@ -364,7 +362,7 @@ fun BrowseScreen(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.Black.copy(alpha = NekoColors.mediumAlphaLowContrast)),
+                    .background(Color.Black.copy(alpha = VietGaColors.mediumAlphaLowContrast)),
             ) {}
         }
     }

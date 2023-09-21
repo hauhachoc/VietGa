@@ -37,7 +37,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import okhttp3.Headers
 import okhttp3.Response
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.chapter.SimpleChapter
 import org.nekomanga.domain.filter.DexFilters
 import org.nekomanga.domain.manga.SourceManga
@@ -145,7 +145,7 @@ open class MangaDex : HttpSource() {
                 }
 
                 val latestChapter = async {
-                    latestChapterHandler.getPage(blockedScanlatorUUIDs = blockedScanlatorUUIDs, limit = MdConstants.Limits.latestSmaller)
+                    latestChapterHandler.getPage(blockedScanlatorUUIDs = blockedScanlatorUUIDs, limit = Constants.Limits.latestSmaller)
                         .andThen { mangaListPage ->
                             Ok(ListResults(displayScreenType = DisplayScreenType.LatestChapters(), sourceManga = mangaListPage.sourceManga))
                         }.bind()
@@ -227,7 +227,7 @@ open class MangaDex : HttpSource() {
     }
 
     override fun getChapterUrl(simpleChapter: SimpleChapter): String {
-        return MdConstants.baseUrl + simpleChapter.url
+        return Constants.baseUrl + simpleChapter.url
     }
 
     override val headers: Headers

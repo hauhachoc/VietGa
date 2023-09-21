@@ -66,9 +66,9 @@ import org.nekomanga.presentation.screens.defaultThemeColorState
 import org.nekomanga.presentation.theme.Padding
 
 @Composable
-fun NekoScaffold(
+fun VietGaScaffold(
 
-    type: NekoScaffoldType,
+    type: VietGaScaffoldType,
     onNavigationIconClicked: () -> Unit,
     modifier: Modifier = Modifier,
     themeColorState: ThemeColorState = defaultThemeColorState(),
@@ -98,10 +98,10 @@ fun NekoScaffold(
         {
             CompositionLocalProvider(LocalRippleTheme provides (themeColorState.rippleTheme)) {
                 when (type) {
-                    NekoScaffoldType.Title -> TitleOnlyTopAppBar(color, title, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, incognitoMode, isRoot, scrollBehavior)
-                    NekoScaffoldType.NoTitle -> NoTitleTopAppBar(color, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, scrollBehavior)
-                    NekoScaffoldType.TitleAndSubtitle -> TitleAndSubtitleTopAppBar(color, title, subtitle, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, scrollBehavior)
-                    NekoScaffoldType.Search -> NoTitleSearchTopAppBar(onSearch, searchPlaceHolder, color, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, scrollBehavior)
+                    VietGaScaffoldType.Title -> TitleOnlyTopAppBar(color, title, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, incognitoMode, isRoot, scrollBehavior)
+                    VietGaScaffoldType.NoTitle -> NoTitleTopAppBar(color, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, scrollBehavior)
+                    VietGaScaffoldType.TitleAndSubtitle -> TitleAndSubtitleTopAppBar(color, title, subtitle, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, scrollBehavior)
+                    VietGaScaffoldType.Search -> NoTitleSearchTopAppBar(onSearch, searchPlaceHolder, color, navigationIconLabel, navigationIcon, onNavigationIconClicked, actions, scrollBehavior)
                 }
 
             }
@@ -346,7 +346,7 @@ fun getTopAppBarColor(title: String): Color {
     }
 }
 
-enum class NekoScaffoldType {
+enum class VietGaScaffoldType {
     TitleAndSubtitle,
     Title,
     NoTitle,

@@ -103,9 +103,9 @@ private fun Downloaded(buttonColor: Color, downloadComplete: Boolean, modifier: 
 
 @Composable
 private fun Queued(modifier: Modifier) {
-    val disabledColor = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast)
+    val disabledColor = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast)
     val infinitePulse = rememberInfiniteTransition()
-    val (initialState, finalState) = 0f to NekoColors.disabledAlphaLowContrast
+    val (initialState, finalState) = 0f to VietGaColors.disabledAlphaLowContrast
 
     val alpha = infinitePulse.animateFloat(
         initialValue = initialState,
@@ -128,7 +128,7 @@ private fun Queued(modifier: Modifier) {
 private fun Downloading(buttonColor: Color, modifier: Modifier, downloadProgress: Float) {
     val (bgColor, iconColor, progressColor) = when {
         downloadProgress >= 1f -> Triple(buttonColor, MaterialTheme.colorScheme.surface, Color.Transparent)
-        else -> Triple(Color.Transparent, MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast), buttonColor)
+        else -> Triple(Color.Transparent, MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast), buttonColor)
     }
 
     val backgroundColor by animateColorAsState(targetValue = bgColor)
@@ -141,7 +141,7 @@ private fun Downloading(buttonColor: Color, modifier: Modifier, downloadProgress
     val iconPainter = rememberVectorPainter(image = Icons.Filled.ArrowDownward)
 
     val infinitePulse = rememberInfiniteTransition()
-    val (initialState, finalState) = 0f to NekoColors.disabledAlphaLowContrast
+    val (initialState, finalState) = 0f to VietGaColors.disabledAlphaLowContrast
 
     val alpha = infinitePulse.animateFloat(
         initialValue = initialState,

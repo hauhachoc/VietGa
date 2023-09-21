@@ -61,9 +61,9 @@
             tools:subtitle="Chapter name"
             app:titleTextColor="?actionBarTintColor"
             app:titleCentered="true"
-            app:titleTextAppearance="@style/Neko.Toolbar.TitleText"
+            app:titleTextAppearance="@style/VietGa.Toolbar.TitleText"
             app:subtitleCentered="true"
-            app:subtitleTextAppearance="@style/Neko.Toolbar.SubTitleText"
+            app:subtitleTextAppearance="@style/VietGa.Toolbar.SubTitleText"
             app:subtitleTextColor="@color/action_bar_tint_alpha"
             android:background="@drawable/reader_toolbar_ripple" />
     </FrameLayout>

@@ -1,14 +1,14 @@
 package org.nekomanga.domain.manga
 
 import eu.kanade.tachiyomi.R
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 
 enum class MangaDemographic(val key: String, val nameRes: Int) {
-    None(MdConstants.Demographic.none, R.string.none),
-    Shounen(MdConstants.Demographic.shounen, R.string.shounen),
-    Shoujo(MdConstants.Demographic.shoujo, R.string.shoujo),
-    Seinen(MdConstants.Demographic.seinen, R.string.seinen),
-    Josei(MdConstants.Demographic.josei, R.string.josei),
+    None(Constants.Demographic.none, R.string.none),
+    Shounen(Constants.Demographic.shounen, R.string.shounen),
+    Shoujo(Constants.Demographic.shoujo, R.string.shoujo),
+    Seinen(Constants.Demographic.seinen, R.string.seinen),
+    Josei(Constants.Demographic.josei, R.string.josei),
 
     ;
 

@@ -30,7 +30,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.domain.manga.SourceManga
 import org.nekomanga.domain.network.ResultError
@@ -193,7 +193,7 @@ class FollowsHandler {
                 ratingResponse.getOrThrow().ratings.asMdMap<RatingDto>()[mangaUUID]
             val track = Track.create(TrackManager.MDLIST).apply {
                 status = followStatus.int
-                tracking_url = "${MdConstants.baseUrl}/title/$mangaUUID"
+                tracking_url = "${Constants.baseUrl}/title/$mangaUUID"
                 score = rating?.rating?.toFloat() ?: 0f
             }
             return@withContext track

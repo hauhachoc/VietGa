@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 
 /**
  * custom chip so you can pass combinedClickable
@@ -36,7 +36,7 @@ fun Chip(
             modifier = Modifier
                 .padding(vertical = 12.dp, horizontal = 12.dp)
                 .background(Color.Transparent),
-            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = NekoColors.mediumAlphaHighContrast),
+            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = VietGaColors.mediumAlphaHighContrast),
         )
     }
 }

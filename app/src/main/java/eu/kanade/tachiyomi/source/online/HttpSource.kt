@@ -13,7 +13,7 @@ import java.util.Locale
 import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.network.GET
 import org.nekomanga.domain.chapter.SimpleChapter
 import rx.Observable
@@ -41,7 +41,7 @@ abstract class HttpSource : Source {
     /**
      * Base url of the website without the trailing slash, like: http://mysite.com
      */
-    open val baseUrl = MdConstants.baseUrl
+    open val baseUrl = Constants.baseUrl
 
     override val name = "MangaDex"
 
@@ -141,6 +141,7 @@ abstract class HttpSource : Source {
     abstract fun getChapterUrl(simpleChapter: SimpleChapter): String
 
     companion object {
-        const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+        const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0";
+        const val USER_AGENT_SHORT =  "Mozilla/5.0 (Windows NT 6.3; WOW64)"
     }
 }

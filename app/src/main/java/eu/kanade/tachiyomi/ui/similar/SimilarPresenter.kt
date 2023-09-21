@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.category.CategoryItem
 import org.nekomanga.domain.category.toCategoryItem
 import org.nekomanga.domain.category.toDbCategory
@@ -175,7 +175,7 @@ class SimilarPresenter(
                     entry.key,
                     entry.value.map {
                         val dbManga = db.getManga(it.mangaId).executeOnIO()!!
-                        it.copy(currentArtwork = it.currentArtwork.copy(url = dbManga.user_cover ?: "", originalArtwork = dbManga.thumbnail_url ?: MdConstants.noCoverUrl))
+                        it.copy(currentArtwork = it.currentArtwork.copy(url = dbManga.user_cover ?: "", originalArtwork = dbManga.thumbnail_url ?: Constants.noCoverUrl))
                     }.toImmutableList(),
                 )
             }.toMap().toImmutableMap()

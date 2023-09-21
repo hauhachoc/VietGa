@@ -17,7 +17,7 @@ import eu.kanade.tachiyomi.util.toDisplayManga
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toPersistentList
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.DisplayResult
 import org.nekomanga.domain.filter.DexFilters
 import org.nekomanga.domain.manga.DisplayManga
@@ -97,7 +97,7 @@ class BrowseRepository(
             Err(blockedScanlatorUUIDs.getAllErrors().first())
         } else {
             val uuids = blockedScanlatorUUIDs.getAll().map { it.uuid }
-            mangaDex.fetchHomePageInfo(MdConstants.currentSeasonalId, uuids)
+            mangaDex.fetchHomePageInfo(Constants.currentSeasonalId, uuids)
                 .andThen { listResults ->
                     Ok(
                         listResults.map { listResult ->
@@ -131,22 +131,22 @@ enum class DeepLinkType {
     companion object {
         fun getDeepLinkType(query: String): DeepLinkType {
             return when {
-                query.startsWith(MdConstants.DeepLinkPrefix.author) -> Author
-                query.startsWith(MdConstants.DeepLinkPrefix.group) -> Group
-                query.startsWith(MdConstants.DeepLinkPrefix.manga) -> Manga
-                query.startsWith(MdConstants.DeepLinkPrefix.error) -> Error
-                query.startsWith(MdConstants.DeepLinkPrefix.list) -> List
+                query.startsWith(Constants.DeepLinkPrefix.author) -> Author
+                query.startsWith(Constants.DeepLinkPrefix.group) -> Group
+                query.startsWith(Constants.DeepLinkPrefix.manga) -> Manga
+                query.startsWith(Constants.DeepLinkPrefix.error) -> Error
+                query.startsWith(Constants.DeepLinkPrefix.list) -> List
                 else -> None
             }
         }
 
         fun removePrefix(query: String, deepLinkType: DeepLinkType): String {
             return when (deepLinkType) {
-                Author -> query.removePrefix(MdConstants.DeepLinkPrefix.author)
-                Group -> query.removePrefix(MdConstants.DeepLinkPrefix.group)
-                Manga -> query.removePrefix(MdConstants.DeepLinkPrefix.manga)
-                List -> query.removePrefix(MdConstants.DeepLinkPrefix.list)
-                Error -> query.removePrefix(MdConstants.DeepLinkPrefix.error)
+                Author -> query.removePrefix(Constants.DeepLinkPrefix.author)
+                Group -> query.removePrefix(Constants.DeepLinkPrefix.group)
+                Manga -> query.removePrefix(Constants.DeepLinkPrefix.manga)
+                List -> query.removePrefix(Constants.DeepLinkPrefix.list)
+                Error -> query.removePrefix(Constants.DeepLinkPrefix.error)
                 None -> query
             }
         }

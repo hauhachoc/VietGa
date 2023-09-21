@@ -28,7 +28,7 @@ import okhttp3.Headers
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.network.CACHE_CONTROL_NO_STORE
 import org.nekomanga.core.network.GET
@@ -79,11 +79,12 @@ class ImageHandler {
             }
         }
 
-        if ((attempt.getError() != null || !attempt.get()!!.isSuccessful) && !request.url.toString().startsWith(MdConstants.cdnUrl)) {
+        if ((attempt.getError() != null || !attempt.get()!!.isSuccessful) && !request.url.toString().startsWith(
+                Constants.cdnUrl)) {
             loggycat(LogPriority.ERROR, attempt.getError(), tag) { "error getting image from at home node falling back to cdn" }
 
             attempt = com.github.michaelbull.result.runCatching {
-                val newRequest = buildRequest(MdConstants.cdnUrl + page.imageUrl, network.headers)
+                val newRequest = buildRequest(Constants.cdnUrl + page.imageUrl, network.headers)
                 network.cdnClient.newCachelessCallWithProgress(newRequest, page).await()
             }
         }
@@ -134,7 +135,7 @@ class ImageHandler {
     private suspend fun sendReport(atHomeImageReportDto: AtHomeImageReportDto) {
         loggycat(tag = tag) { "Image to report $atHomeImageReportDto" }
 
-        if (atHomeImageReportDto.url.startsWith(MdConstants.cdnUrl)) {
+        if (atHomeImageReportDto.url.startsWith(Constants.cdnUrl)) {
             loggycat(tag = tag) { "image is at CDN don't report to md@home node" }
             return
         }
@@ -148,7 +149,7 @@ class ImageHandler {
         val currentTime = Date().time
 
         val mdAtHomeServerUrl =
-            when (tokenTracker[page.mangaDexChapterId] != null && (currentTime - tokenTracker[page.mangaDexChapterId]!!) < MdConstants.mdAtHomeTokenLifespan) {
+            when (tokenTracker[page.mangaDexChapterId] != null && (currentTime - tokenTracker[page.mangaDexChapterId]!!) < Constants.mdAtHomeTokenLifespan) {
                 true -> data[0]
                 false -> {
                     loggycat(tag = tag) { "Time has expired get new at home url isLogged $isLogged" }

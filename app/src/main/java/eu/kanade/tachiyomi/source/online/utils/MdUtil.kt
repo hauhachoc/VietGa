@@ -6,7 +6,7 @@ import java.util.Locale
 import java.util.TimeZone
 import kotlinx.serialization.json.Json
 import org.jsoup.parser.Parser
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 
 class MdUtil {
 
@@ -15,12 +15,12 @@ class MdUtil {
         /**
          * Get the manga offset pages are 1 based, so subtract 1
          */
-        fun getMangaListOffset(page: Int): Int = (MdConstants.Limits.manga * (page - 1))
+        fun getMangaListOffset(page: Int): Int = (Constants.Limits.manga * (page - 1))
 
         /**
          * Get the latest chapter  offset pages are 1 based, so subtract 1
          */
-        fun getLatestChapterListOffset(page: Int): Int = (MdConstants.Limits.latest * (page - 1))
+        fun getLatestChapterListOffset(page: Int): Int = (Constants.Limits.latest * (page - 1))
 
         val jsonParser =
             Json {
@@ -57,7 +57,7 @@ class MdUtil {
                 2 -> ".256.jpg"
                 else -> ""
             }
-            return "${MdConstants.cdnUrl}/covers/$dexId/$fileName$coverQualitySuffix"
+            return "${Constants.cdnUrl}/covers/$dexId/$fileName$coverQualitySuffix"
         }
 
         fun getLangsToShow(preferences: PreferencesHelper) =

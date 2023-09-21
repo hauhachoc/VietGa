@@ -14,7 +14,7 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.network.ProxyRetrofitQueryMap
 import org.nekomanga.domain.manga.MangaContentRating
 import org.nekomanga.domain.manga.SourceManga
@@ -32,7 +32,7 @@ class ListHandler {
             service.viewList(listUUID)
                 .getOrResultError("Error getting list")
                 .andThen { listDto ->
-                    val mangaIds = listDto.data.relationships.filter { it.type == MdConstants.Types.manga }.map { it.id }
+                    val mangaIds = listDto.data.relationships.filter { it.type == Constants.Types.manga }.map { it.id }
                     when (mangaIds.isEmpty()) {
                         true -> Ok(ListResults(DisplayScreenType.List("", listUUID), persistentListOf()))
                         false -> {

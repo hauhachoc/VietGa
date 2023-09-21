@@ -35,7 +35,7 @@ fun ExpandableRow(rowText: String, isExpanded: Boolean, disabled: Boolean, textC
         Text(
             text = rowText,
             style = MaterialTheme.typography.bodyLarge,
-            color = if (!disabled) textColor else MaterialTheme.colorScheme.onSurface.copy(NekoColors.disabledAlphaLowContrast),
+            color = if (!disabled) textColor else MaterialTheme.colorScheme.onSurface.copy(VietGaColors.disabledAlphaLowContrast),
         )
         val icon = when (isExpanded) {
             true -> Icons.Default.ExpandLess
@@ -44,7 +44,7 @@ fun ExpandableRow(rowText: String, isExpanded: Boolean, disabled: Boolean, textC
         Icon(
             imageVector = icon,
             contentDescription = null,
-            tint = if (!disabled) textColor else MaterialTheme.colorScheme.onSurface.copy(NekoColors.disabledAlphaLowContrast),
+            tint = if (!disabled) textColor else MaterialTheme.colorScheme.onSurface.copy(VietGaColors.disabledAlphaLowContrast),
         )
     }
 }

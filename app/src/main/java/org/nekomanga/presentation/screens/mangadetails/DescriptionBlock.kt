@@ -57,7 +57,7 @@ import jp.wasabeef.gap.Gap
 import kotlinx.collections.immutable.ImmutableList
 import org.intellij.markdown.flavours.commonmark.CommonMarkFlavourDescriptor
 import org.nekomanga.presentation.Chip
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.extensions.conditional
 import org.nekomanga.presentation.extensions.surfaceColorAtElevationCustomColor
 import org.nekomanga.presentation.screens.ThemeColorState
@@ -119,8 +119,8 @@ fun DescriptionBlock(
 
                 Markdown(
                     content = text,
-                    colors = nekoMarkdownColors(),
-                    typography = nekoMarkdownTypography(),
+                    colors = VietGaMarkdownColors(),
+                    typography = VietGaMarkdownTypography(),
                     flavour = CommonMarkFlavourDescriptor(),
                     modifier = Modifier
                         .align(Alignment.TopStart)
@@ -164,8 +164,8 @@ fun DescriptionBlock(
             SelectionContainer {
                 Markdown(
                     content = text,
-                    colors = nekoMarkdownColors(),
-                    typography = nekoMarkdownTypography(),
+                    colors = VietGaMarkdownColors(),
+                    typography = VietGaMarkdownTypography(),
                     flavour = CommonMarkFlavourDescriptor(),
                     modifier = clickable,
                 )
@@ -236,12 +236,12 @@ private fun AltTitles(
 ) {
     if (altTitles.isNotEmpty()) {
         val isCustomTitle = altTitles.contains(currentTitle)
-        val onChipColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = NekoColors.mediumAlphaHighContrast)
+        val onChipColor = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = VietGaColors.mediumAlphaHighContrast)
 
         Text(
             text = "Alt Titles:",
             style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast),
         )
         if (shouldWrap) {
             FlowableAltTitles(
@@ -387,7 +387,7 @@ private fun ColumnScope.Genres(genres: ImmutableList<String>, tagColor: Color, b
     Text(
         text = "Tags:",
         style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast),
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast),
     )
     Gap(8.dp)
     FlowRow(
@@ -461,14 +461,14 @@ private fun GenreBalloon(
 }
 
 @Composable
-private fun nekoMarkdownColors() = markdownColor(
-    text = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast),
-    codeText = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast),
+private fun VietGaMarkdownColors() = markdownColor(
+    text = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast),
+    codeText = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast),
     codeBackground = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f),
 )
 
 @Composable
-private fun nekoMarkdownTypography() = markdownTypography(
+private fun VietGaMarkdownTypography() = markdownTypography(
     h1 = MaterialTheme.typography.headlineMedium,
     h2 = MaterialTheme.typography.headlineSmall,
     h3 = MaterialTheme.typography.titleLarge,

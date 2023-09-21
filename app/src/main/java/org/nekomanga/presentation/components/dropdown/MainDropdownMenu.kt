@@ -29,7 +29,7 @@ import com.mikepenz.iconics.typeface.library.community.material.CommunityMateria
 import eu.kanade.presentation.components.Divider
 import eu.kanade.tachiyomi.R
 import me.saket.cascade.CascadeDropdownMenu
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.components.UiIcon
 import org.nekomanga.presentation.components.UiText
 import org.nekomanga.presentation.screens.defaultThemeColorState
@@ -40,7 +40,6 @@ fun MainDropdownMenu(
     incognitoModeEnabled: Boolean,
     incognitoModeClick: () -> Unit,
     settingsClick: () -> Unit,
-    statsClick: () -> Unit,
     aboutClick: () -> Unit,
     helpClick: () -> Unit,
     onDismiss: () -> Unit,
@@ -86,12 +85,6 @@ fun MainDropdownMenu(
                     onDismiss = onDismiss,
                 )
                 Row(
-                    title = UiText.StringResource(R.string.stats),
-                    icon = UiIcon.Icon(Icons.Outlined.QueryStats),
-                    onClick = statsClick,
-                    onDismiss = onDismiss,
-                )
-                Row(
                     title = UiText.StringResource(R.string.about),
                     icon = UiIcon.Icon(Icons.Outlined.Info),
                     onClick = aboutClick,
@@ -117,7 +110,7 @@ private fun Row(title: UiText, subTitle: UiText? = null, icon: UiIcon, onClick: 
                 if (subTitle != null) {
                     Text(
                         text = subTitle.asString(),
-                        style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast), letterSpacing = (-.5).sp),
+                        style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast), letterSpacing = (-.5).sp),
                     )
                 }
             }

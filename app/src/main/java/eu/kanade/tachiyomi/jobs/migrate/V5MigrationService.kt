@@ -16,7 +16,7 @@ import eu.kanade.tachiyomi.source.online.utils.MdUtil
 import eu.kanade.tachiyomi.util.log
 import eu.kanade.tachiyomi.util.storage.getUriCompat
 import java.io.File
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
 
@@ -83,7 +83,7 @@ class V5MigrationService(
                         db.insertManga(manga).executeAsBlocking()
                         val tracks = db.getTracks(manga).executeAsBlocking()
                         tracks.firstOrNull { it.sync_id == trackManager.mdList.id }?.let {
-                            it.tracking_url = MdConstants.baseUrl + manga.url
+                            it.tracking_url = Constants.baseUrl + manga.url
                             db.insertTrack(it).executeAsBlocking()
                         }
                         actualMigrated++
@@ -134,7 +134,7 @@ class V5MigrationService(
                                 val newId = dataDto.attributes.newId
                                 val chapter = chapterMap[oldId]!!
                                 chapter.mangadex_chapter_id = newId
-                                chapter.url = MdConstants.chapterSuffix + newId
+                                chapter.url = Constants.chapterSuffix + newId
                                 chapter.old_mangadex_id = oldId.toString()
                                 db.insertChapter(chapter).executeAsBlocking()
                             }
@@ -193,7 +193,7 @@ class V5MigrationService(
     private fun writeErrorFile(context: Context, errors: MutableList<String>): File {
         try {
             if (errors.isNotEmpty()) {
-                val destFile = File(context.externalCacheDir, "neko_v5_migration_errors.txt")
+                val destFile = File(context.externalCacheDir, "VietGa_v5_migration_errors.txt")
                 destFile.bufferedWriter().use { out ->
                     errors.forEach { error ->
                         out.write("$error\n")

@@ -12,7 +12,7 @@ fun NotificationCompat.Builder.customize(
 ): NotificationCompat.Builder {
     setContentTitle(title)
     setSmallIcon(smallIcon)
-    color = context.contextCompatColor(R.color.new_neko_accent)
+    color = context.contextCompatColor(R.color.new_VietGa_accent)
     if (ongoing) {
         setOngoing(true)
     }

@@ -48,7 +48,7 @@ fun CheckboxRow(
         Text(
             text = rowText,
             style = rowTextStyle,
-            color = if (!disabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(NekoColors.disabledAlphaLowContrast),
+            color = if (!disabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(VietGaColors.disabledAlphaLowContrast),
         )
     }
 }

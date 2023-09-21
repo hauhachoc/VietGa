@@ -20,7 +20,7 @@ import java.security.SecureRandom
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import tachiyomi.core.preference.Preference
 import tachiyomi.core.preference.PreferenceStore
 import tachiyomi.core.preference.getEnum
@@ -43,7 +43,7 @@ operator fun <T> Preference<Set<T>>.minusAssign(item: Collection<T>) {
 
 class PreferencesHelper(val context: Context, val preferenceStore: PreferenceStore) {
 
-    private val defaultFolder = context.getString(R.string.app_name_neko) + when (BuildConfig.DEBUG) {
+    private val defaultFolder = context.getString(R.string.app_name_VietGa) + when (BuildConfig.DEBUG) {
         true -> "_DEBUG"
         false -> ""
     }
@@ -232,12 +232,13 @@ class PreferencesHelper(val context: Context, val preferenceStore: PreferenceSto
 
     fun addToLibraryAsPlannedToRead() = this.preferenceStore.getBoolean(Keys.addToLibraryAsPlannedToRead, false)
 
-    fun contentRatingSelections() = this.preferenceStore.getStringSet(Keys.contentRating, setOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive))
+    fun contentRatingSelections() = this.preferenceStore.getStringSet(Keys.contentRating, setOf(
+        Constants.ContentRating.safe, Constants.ContentRating.suggestive))
 
     fun autoTrackContentRatingSelections() =
         this.preferenceStore.getStringSet(
             Keys.autoTrackContentRating,
-            setOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive, MdConstants.ContentRating.erotica, MdConstants.ContentRating.pornographic),
+            setOf(Constants.ContentRating.safe, Constants.ContentRating.suggestive, Constants.ContentRating.erotica, Constants.ContentRating.pornographic),
         )
 
     fun autoAddTracker() = this.preferenceStore.getStringSet(Keys.autoAddTracker, setOf(TrackManager.MDLIST.toString()))

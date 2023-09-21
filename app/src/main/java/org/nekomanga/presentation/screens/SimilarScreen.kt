@@ -38,8 +38,8 @@ import org.nekomanga.domain.manga.DisplayManga
 import org.nekomanga.presentation.components.AppBarActions
 import org.nekomanga.presentation.components.MangaGridWithHeader
 import org.nekomanga.presentation.components.MangaListWithHeader
-import org.nekomanga.presentation.components.NekoScaffold
-import org.nekomanga.presentation.components.NekoScaffoldType
+import org.nekomanga.presentation.components.VietGaScaffold
+import org.nekomanga.presentation.components.VietGaScaffoldType
 import org.nekomanga.presentation.components.PullRefresh
 import org.nekomanga.presentation.components.listGridAppBarAction
 import org.nekomanga.presentation.components.sheets.EditCategorySheet
@@ -92,9 +92,9 @@ fun SimilarScreen(
             }
         },
     ) {
-        NekoScaffold(
+        VietGaScaffold(
             title = stringResource(id = R.string.similar),
-            type = NekoScaffoldType.Title,
+            type = VietGaScaffoldType.Title,
             onNavigationIconClicked = onBackPress,
             actions = {
                 AppBarActions(

@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import kotlin.math.roundToInt
 
 @Composable
-fun NekoSwipeToDismiss(
+fun VietGaSwipeToDismiss(
     state: DismissState,
     modifier: Modifier = Modifier,
     directions: Set<DismissDirection> = setOf(DismissDirection.EndToStart, DismissDirection.StartToEnd),

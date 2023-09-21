@@ -56,12 +56,12 @@ class LibraryUpdateNotifier(private val context: Context) {
      */
     val progressNotificationBuilder by lazy {
         context.notificationBuilder(Notifications.CHANNEL_LIBRARY_PROGRESS) {
-            setContentTitle(context.getString(R.string.app_name_neko))
+            setContentTitle(context.getString(R.string.app_name_VietGa))
             setSmallIcon(R.drawable.ic_refresh_24dp)
             setLargeIcon(notificationBitmap)
             setOngoing(true)
             setOnlyAlertOnce(true)
-            color = ContextCompat.getColor(context, R.color.new_neko_accent)
+            color = ContextCompat.getColor(context, R.color.new_VietGa_accent)
             addAction(
                 R.drawable.ic_close_24dp,
                 context.getString(android.R.string.cancel),
@@ -119,7 +119,7 @@ class LibraryUpdateNotifier(private val context: Context) {
                     ),
                 )
                 setContentIntent(pendingIntent)
-                setSmallIcon(R.drawable.ic_neko_notification)
+                setSmallIcon(R.drawable.ic_vietga_notification)
                 addAction(
                     R.drawable.ic_help_24dp,
                     context.getString(R.string.open_log),
@@ -156,7 +156,7 @@ class LibraryUpdateNotifier(private val context: Context) {
                     ),
                 )
                 setContentIntent(pendingIntent)
-                setSmallIcon(R.drawable.ic_neko_notification)
+                setSmallIcon(R.drawable.ic_vietga_notification)
                 addAction(
                     R.drawable.ic_help_24dp,
                     context.getString(R.string.open_log),
@@ -185,7 +185,7 @@ class LibraryUpdateNotifier(private val context: Context) {
                     notifications.add(
                         Pair(
                             context.notification(Notifications.CHANNEL_NEW_CHAPTERS) {
-                                setSmallIcon(R.drawable.ic_neko_notification)
+                                setSmallIcon(R.drawable.ic_vietga_notification)
                                 try {
                                     val request = ImageRequest.Builder(context).data(manga)
                                         .networkCachePolicy(CachePolicy.DISABLED)
@@ -201,7 +201,7 @@ class LibraryUpdateNotifier(private val context: Context) {
                                 }
                                 setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_SUMMARY)
                                 setContentTitle(manga.title)
-                                color = ContextCompat.getColor(context, R.color.new_neko_accent)
+                                color = ContextCompat.getColor(context, R.color.new_VietGa_accent)
                                 val chaptersNames = if (chapterNames.size > MAX_CHAPTERS) {
                                     "${chapterNames.take(MAX_CHAPTERS - 1).joinToString(", ")}, " +
                                         context.resources.getQuantityString(
@@ -264,10 +264,10 @@ class LibraryUpdateNotifier(private val context: Context) {
                 notify(
                     Notifications.ID_NEW_CHAPTERS,
                     context.notification(Notifications.CHANNEL_NEW_CHAPTERS) {
-                        setSmallIcon(R.drawable.ic_neko_notification)
+                        setSmallIcon(R.drawable.ic_vietga_notification)
                         setLargeIcon(notificationBitmap)
                         setContentTitle(context.getString(R.string.new_chapters_found))
-                        color = ContextCompat.getColor(context, R.color.new_neko_accent)
+                        color = ContextCompat.getColor(context, R.color.new_VietGa_accent)
                         if (updates.size > 1) {
                             setContentText(
                                 context.resources.getQuantityString(

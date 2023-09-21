@@ -89,6 +89,7 @@
 
                 <eu.kanade.tachiyomi.widget.MenuSheetItemView
                     android:id="@+id/stats_item"
+                    android:visibility="gone"
                     android:layout_width="0dp"
                     app:layout_constraintWidth_min="wrap"
                     android:layout_height="wrap_content"

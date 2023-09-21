@@ -18,7 +18,7 @@ import eu.kanade.tachiyomi.util.lang.capitalized
 import eu.kanade.tachiyomi.util.lang.toResultError
 import kotlin.math.floor
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.domain.manga.Stats
 import org.nekomanga.domain.network.ResultError
@@ -44,11 +44,11 @@ class ApiMangaParser {
             manga.description = mangaAttributesDto.description.asMdMap<String>()["en"]
 
             manga.author = mangaDto.relationships.filter { relationshipDto ->
-                relationshipDto.type.equals(MdConstants.Types.author, true)
+                relationshipDto.type.equals(Constants.Types.author, true)
             }.mapNotNull { it.attributes!!.name }.distinct().joinToString(" • ")
 
             manga.artist = mangaDto.relationships.filter { relationshipDto ->
-                relationshipDto.type.equals(MdConstants.Types.artist, true)
+                relationshipDto.type.equals(Constants.Types.artist, true)
             }.mapNotNull { it.attributes!!.name }.distinct().joinToString(" • ")
 
             val altTitles = mangaAttributesDto.altTitles?.map { it.asMdMap<String>().values }?.flatten()
@@ -150,7 +150,7 @@ class ApiMangaParser {
     ): SChapter {
         val chapter = SChapter.create()
         val attributes = networkChapter.attributes
-        chapter.url = MdConstants.chapterSuffix + networkChapter.id
+        chapter.url = Constants.chapterSuffix + networkChapter.id
 
         chapter.name = networkChapter.buildChapterName(chapter, lastChapterNumber)
         // Convert from unix time
@@ -158,7 +158,7 @@ class ApiMangaParser {
         chapter.date_upload = MdUtil.parseDate(attributes.readableAt)
 
         val scanlatorName =
-            networkChapter.relationships.filter { it.type == MdConstants.Types.scanlator }
+            networkChapter.relationships.filter { it.type == Constants.Types.scanlator }
                 .mapNotNull { groups[it.id] }.toMutableSet()
 
         if (scanlatorName.contains("no group") || scanlatorName.isEmpty()) {

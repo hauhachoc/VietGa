@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.kanade.tachiyomi.R
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.screens.ThemeColorState
 
 /**
@@ -51,7 +51,7 @@ fun ChapterHeader(themeColor: ThemeColorState, numberOfChaptersProvider: () -> I
                 Text(
                     text = filterTextProvider(),
                     style =
-                    MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast)),
+                    MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast)),
                     modifier = Modifier
                         .requiredWidthIn(0.dp, 200.dp)
                         .align(Alignment.CenterVertically)
@@ -76,7 +76,7 @@ private fun ChapterText(numberOfChapters: Int, modifier: Modifier = Modifier) {
     Text(
         text = resources.getQuantityString(R.plurals.chapters_plural, numberOfChapters, numberOfChapters),
         style = MaterialTheme.typography.titleLarge,
-        color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.highAlphaLowContrast),
+        color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.highAlphaLowContrast),
         modifier = modifier,
     )
 }

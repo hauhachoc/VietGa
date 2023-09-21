@@ -79,7 +79,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.domain.category.CategoryItem
 import org.nekomanga.domain.category.toCategoryItem
@@ -520,7 +520,7 @@ class MangaDetailPresenter(
                 val directory = File(
                     Environment.getExternalStorageDirectory().absolutePath +
                         File.separator + Environment.DIRECTORY_PICTURES +
-                        File.separator + preferences.context.getString(R.string.app_name_neko),
+                        File.separator + preferences.context.getString(R.string.app_name_VietGa),
                 )
                 saveCover(directory, artwork)
                 launchUI {
@@ -1268,7 +1268,7 @@ class MangaDetailPresenter(
             initialized = m.initialized,
             inLibrary = m.favorite,
             isMerged = isMerged(m),
-            isPornographic = m.getContentRating()?.equals(MdConstants.ContentRating.pornographic, ignoreCase = true) ?: false,
+            isPornographic = m.getContentRating()?.equals(Constants.ContentRating.pornographic, ignoreCase = true) ?: false,
             langFlag = m.lang_flag,
             missingChapters = m.missing_chapters,
             originalTitle = m.originalTitle,
@@ -1678,7 +1678,7 @@ class MangaDetailPresenter(
                             ),
                         )
                     } else {
-                        context.openInWebView(MdConstants.forumUrl + threadId)
+                        context.openInWebView(Constants.forumUrl + threadId)
                     }
                 }
             }

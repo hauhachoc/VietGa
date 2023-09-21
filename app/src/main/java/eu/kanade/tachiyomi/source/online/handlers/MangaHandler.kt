@@ -29,7 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.domain.manga.Stats
 import org.nekomanga.domain.network.ResultError
@@ -68,7 +68,7 @@ class MangaHandler {
                     this.log(type)
                     this.throws(type)
                 }.getOrThrow()
-                .data.relationships.first { it.type == MdConstants.Types.manga }.id
+                .data.relationships.first { it.type == Constants.Types.manga }.id
         }
     }
 
@@ -189,7 +189,7 @@ class MangaHandler {
     private fun getGroupMap(results: List<ChapterDataDto>): Map<String, String> {
         return results.map { chapter -> chapter.relationships }
             .flatten()
-            .filter { it.type == MdConstants.Types.scanlator }
+            .filter { it.type == Constants.Types.scanlator }
             .map { it.id to it.attributes!!.name!! }
             .toMap()
     }

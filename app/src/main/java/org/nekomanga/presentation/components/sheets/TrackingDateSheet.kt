@@ -46,7 +46,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import jp.wasabeef.gap.Gap
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.screens.ThemeColorState
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -110,7 +110,7 @@ fun TrackingDateSheet(
             Gap(8.dp)
             Text(
                 text = stringResource(id = R.string.current_date_, trackingDate.dateFormat.format(trackingDate.currentDate)),
-                style = MaterialTheme.typography.titleSmall.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaHighContrast)),
+                style = MaterialTheme.typography.titleSmall.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaHighContrast)),
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
             )
@@ -179,7 +179,7 @@ fun TrackingDateSheet(
                     maxDate = LocalDate.now(),
                     contentTextStyle = MaterialTheme.typography.headlineSmall.copy(color = MaterialTheme.colorScheme.onSurface),
                     cursorBrush = SolidColor(themeColorState.buttonColor),
-                    hintTextStyle = MaterialTheme.typography.headlineSmall.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast)),
+                    hintTextStyle = MaterialTheme.typography.headlineSmall.copy(color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast)),
                 )
                 ElevatedButton(
                     onClick = { trackDateChanged(EditTrackingDate(trackingDate.readingDate, newDate!!, trackAndService)) },

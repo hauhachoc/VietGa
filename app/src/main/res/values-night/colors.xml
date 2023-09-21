@@ -3,15 +3,15 @@
     <!-- Application Colors -->
     <color name="primaryVariantTachiyomi">#292929</color>
     <color name="colorPrimaryInactive">@color/md_white_1000_76</color>
-    <color name="primaryTachiyomi">@color/neko_green</color>
+    <color name="primaryTachiyomi">@color/VietGa_green</color>
     <color name="onPrimaryTachiyomi">#071D39</color>
     <color name="primaryInverseTachiyomi">#2c517f</color>
     <color name="colorOnSurface">@color/md_white_1000</color>
     <color name="colorOnBackground">@color/md_white_1000</color>
 
-    <color name="rippleColorTachiyomi">@color/neko_green</color>
-    <color name="secondaryTachiyomi">@color/neko_green</color>
-    <color name="secondaryVariantTachiyomi">@color/neko_green_darker</color>
+    <color name="rippleColorTachiyomi">@color/VietGa_green</color>
+    <color name="secondaryTachiyomi">@color/VietGa_green</color>
+    <color name="secondaryVariantTachiyomi">@color/VietGa_green_darker</color>
     <color name="splashBackground">#212121</color>
     <color name="actionModeShadow">@color/md_black_1000</color>
 

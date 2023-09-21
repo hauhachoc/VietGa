@@ -49,7 +49,7 @@ import jp.wasabeef.gap.Gap
 import org.nekomanga.domain.track.TrackItem
 import org.nekomanga.domain.track.TrackSearchItem
 import org.nekomanga.domain.track.TrackServiceItem
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.components.SearchFooter
 import org.nekomanga.presentation.components.dialog.TrackingSwitchDialog
 import org.nekomanga.presentation.screens.ThemeColorState
@@ -190,7 +190,7 @@ private fun TrackSearchItem(
                 modifier = Modifier
                     .height(IntrinsicSize.Min)
                     .fillMaxWidth()
-                    .background(color = backdropColor.copy(alpha = NekoColors.highAlphaLowContrast)),
+                    .background(color = backdropColor.copy(alpha = VietGaColors.highAlphaLowContrast)),
             ) {
                 IconButton(
                     onClick = { openInBrowser(trackSearch.trackItem.trackingUrl, trackSearch.trackItem.title) },
@@ -228,7 +228,7 @@ private fun TrackSearchItem(
                             Gap(4.dp)
                             Text(
                                 text = trackSearch.publishingType,
-                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaHighContrast),
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaHighContrast),
                                 style = MaterialTheme.typography.bodyLarge,
                             )
                         }
@@ -240,7 +240,7 @@ private fun TrackSearchItem(
                             Gap(4.dp)
                             Text(
                                 text = trackSearch.startDate,
-                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaHighContrast),
+                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaHighContrast),
                                 style = MaterialTheme.typography.bodyLarge,
                             )
                         }
@@ -255,7 +255,7 @@ private fun TrackSearchItem(
                         text = summary,
                         maxLines = 3,
                         overflow = TextOverflow.Ellipsis,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaHighContrast),
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaHighContrast),
                         style = MaterialTheme.typography.bodyLarge,
                     )
                 }

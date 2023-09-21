@@ -45,8 +45,8 @@ import eu.kanade.tachiyomi.util.system.isOnline
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import org.nekomanga.domain.snackbar.SnackbarState
-import org.nekomanga.presentation.components.NekoScaffold
-import org.nekomanga.presentation.components.NekoScaffoldType
+import org.nekomanga.presentation.components.VietGaScaffold
+import org.nekomanga.presentation.components.VietGaScaffoldType
 import org.nekomanga.presentation.components.dialog.AppUpdateDialog
 import org.nekomanga.presentation.components.snackbar.snackbarHost
 import org.nekomanga.presentation.theme.Padding
@@ -67,9 +67,9 @@ fun AboutScreen(
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
-    NekoScaffold(
+    VietGaScaffold(
         title = stringResource(id = R.string.about),
-        type = NekoScaffoldType.Title,
+        type = VietGaScaffoldType.Title,
         onNavigationIconClicked = onBackPressed,
         snackBarHost = snackbarHost(snackbarHostState),
     ) { contentPadding ->
@@ -143,7 +143,7 @@ fun AboutScreen(
                     title = stringResource(R.string.whats_new),
                     onClick = {
                         val url = if (BuildConfig.DEBUG) {
-                            "https://github.com/CarlosEsco/Neko/commits/master"
+                            "https://github.com/CarlosEsco/VietGa/commits/master"
                         } else {
                             RELEASE_URL
                         }
@@ -206,7 +206,7 @@ fun AboutScreen(
                     LinkIcon(
                         label = "GitHub",
                         icon = SimpleIcons.Github,
-                        url = "https://github.com/CarlosEsco/neko",
+                        url = "https://github.com/CarlosEsco/VietGa",
                     )
                     LinkIcon(
                         label = "Tachiyomi",
@@ -229,7 +229,7 @@ private fun LogoHeader() {
                 .padding(top = 30.dp),
         ) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_neko_notification),
+                painter = painterResource(id = R.drawable.ic_vietga_notification),
                 tint = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.size(200.dp),
                 contentDescription = null,

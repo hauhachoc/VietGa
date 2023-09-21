@@ -51,7 +51,7 @@ import java.util.Locale
 import jp.wasabeef.gap.Gap
 import kotlin.math.roundToInt
 import org.nekomanga.domain.manga.Stats
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.components.NoRippleText
 import org.nekomanga.presentation.extensions.surfaceColorAtElevationCustomColor
 import org.nekomanga.presentation.screens.ThemeColorState
@@ -76,8 +76,8 @@ fun InformationBlock(
     creatorCopyClick: (String) -> Unit = {},
     creatorSearchClick: (String) -> Unit = {},
 ) {
-    val highAlpha = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.highAlphaLowContrast)
-    val mediumAlpha = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast)
+    val highAlpha = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.highAlphaLowContrast)
+    val mediumAlpha = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast)
 
     Column(
         modifier = modifier

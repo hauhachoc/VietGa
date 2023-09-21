@@ -1,20 +1,18 @@
-package org.nekomanga.constants
+package org.nekomanga.util
 
 import android.util.Base64
 import androidx.core.net.toUri
 import java.security.MessageDigest
 import java.util.concurrent.TimeUnit
+import org.nekomanga.constants.BuildConfig
 
-object MdConstants {
+object Constants {
     const val currentSeasonalId = "1b9f88f8-9880-464d-9ed9-59b7e36392e2"
     const val baseUrl = "https://mangadex.org"
     const val cdnUrl = "https://uploads.mangadex.org"
     const val forumUrl = "https://forums.mangadex.org/threads/"
     const val atHomeReportUrl = "https://api.mangadex.network/report"
     const val noCoverUrl = "https://mangadex.org/cover-placeholder.jpg"
-    const val imageUrlCacheNotFound =
-        "https://cdn.statically.io/img/raw.githubusercontent.com/CarlosEsco/Neko/master/.github/manga_cover_not_found.png"
-
     const val chapterSuffix = "/chapter/"
 
     object Api {
@@ -40,8 +38,8 @@ object MdConstants {
     }
 
     object Login {
-        val redirectUri = if (BuildConfig.DEBUG) "neko://mangadex-auth-debug" else "neko://mangadex-auth"
-        const val clientId = "neko"
+        val redirectUri = if (BuildConfig.DEBUG) "VietGa://mangadex-auth-debug" else "VietGa://mangadex-auth"
+        const val clientId = "VietGa"
         const val authorizationCode = "authorization_code"
         const val refreshToken = "refresh_token"
 

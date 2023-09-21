@@ -2,6 +2,7 @@ package org.nekomanga.core.preferences
 
 import org.nekomanga.core.R
 
+
 // Library
 const val MANGA_NON_COMPLETED = "manga_ongoing"
 const val MANGA_HAS_UNREAD = "manga_fully_read"

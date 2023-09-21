@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import org.nekomanga.core.security.SecurityPreferences
 import org.nekomanga.presentation.screens.WebViewScreen
-import org.nekomanga.presentation.theme.NekoTheme
+import org.nekomanga.presentation.theme.VietGaTheme
 import tachiyomi.core.util.system.WebViewUtil
 import uy.kohesive.injekt.injectLazy
 
@@ -55,7 +55,7 @@ open class WebViewActivity : AppCompatActivity() {
         val source = sourceManager.get(intent.extras!!.getLong(SOURCE_KEY)) as? HttpSource ?: return
         val headers = source.headers.toMultimap().mapValues { it.value.getOrNull(0) ?: "" }
         setContent {
-            NekoTheme {
+            VietGaTheme {
                 WebViewScreen(
                     title = title.toString(),
                     url = url,

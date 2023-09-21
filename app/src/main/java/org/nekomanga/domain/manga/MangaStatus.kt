@@ -2,15 +2,15 @@ package org.nekomanga.domain.manga
 
 import androidx.annotation.StringRes
 import eu.kanade.tachiyomi.R
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 
 enum class MangaStatus(val status: Int, @StringRes val statusRes: Int, val key: String = "") {
     Unknown(0, R.string.unknown),
-    Ongoing(1, R.string.ongoing, MdConstants.Status.ongoing),
-    Completed(2, R.string.completed, MdConstants.Status.completed),
+    Ongoing(1, R.string.ongoing, Constants.Status.ongoing),
+    Completed(2, R.string.completed, Constants.Status.completed),
     PublicationComplete(4, R.string.publication_complete),
-    Cancelled(5, R.string.cancelled, MdConstants.Status.cancelled),
-    Hiatus(6, R.string.hiatus, MdConstants.Status.hiatus),
+    Cancelled(5, R.string.cancelled, Constants.Status.cancelled),
+    Hiatus(6, R.string.hiatus, Constants.Status.hiatus),
     ;
 
     companion object {

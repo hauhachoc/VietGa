@@ -10,15 +10,15 @@ import com.mikepenz.aboutlibraries.ui.compose.LibraryDefaults.libraryColors
 import com.mikepenz.aboutlibraries.ui.compose.LibraryDefaults.libraryPadding
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.ui.base.controller.BasicComposeController
-import org.nekomanga.presentation.components.NekoScaffold
-import org.nekomanga.presentation.components.NekoScaffoldType
+import org.nekomanga.presentation.components.VietGaScaffold
+import org.nekomanga.presentation.components.VietGaScaffoldType
 
 class LicensesController : BasicComposeController() {
     @Composable
     override fun ScreenContent() {
-        NekoScaffold(
+        VietGaScaffold(
             title = stringResource(id = R.string.open_source_licenses),
-            type = NekoScaffoldType.Title,
+            type = VietGaScaffoldType.Title,
             onNavigationIconClicked = { activity?.onBackPressed() },
         ) { contentPadding ->
             LibrariesContainer(

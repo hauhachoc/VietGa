@@ -41,7 +41,7 @@ import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.ui.webview.WebViewActivity
 import java.io.File
 import kotlin.math.max
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
 
@@ -380,7 +380,7 @@ fun Context.openInFirefox(url: String) {
 }
 
 fun Context.openInBrowser(url: String, forceDefaultBrowser: Boolean = false) {
-    if (url.contains(MdConstants.baseUrl)) {
+    if (url.contains(Constants.baseUrl)) {
         this.openInBrowser(url.toUri(), true)
     } else {
         this.openInBrowser(url.toUri(), forceDefaultBrowser)
@@ -390,7 +390,7 @@ fun Context.openInBrowser(url: String, forceDefaultBrowser: Boolean = false) {
 fun Context.openInBrowser(uri: Uri, forceDefaultBrowser: Boolean = false) {
     try {
         val intent = Intent(Intent.ACTION_VIEW, uri).apply {
-            // Force default browser so that verified extensions don't re-open Neko
+            // Force default browser so that verified extensions don't re-open VietGa
             if (forceDefaultBrowser) {
                 defaultBrowserPackageName()?.let { setPackage(it) }
             }

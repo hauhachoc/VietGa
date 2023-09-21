@@ -34,7 +34,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Neko"
+rootProject.name = "VietGa"
 include(":app")
 include(":core")
 include(":constants")

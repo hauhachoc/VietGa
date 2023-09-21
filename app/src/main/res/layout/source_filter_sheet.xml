@@ -57,7 +57,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/random_manga_btn"
-            style="@style/Neko.Button.TextButton"
+            style="@style/VietGa.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/random_manga"
@@ -66,7 +66,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/latest_chapters_btn"
-            style="@style/Neko.Button.TextButton"
+            style="@style/VietGa.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/latest"
@@ -76,7 +76,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/follows_btn"
-            style="@style/Neko.Button.TextButton"
+            style="@style/VietGa.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -88,7 +88,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/reset_btn"
-            style="@style/Neko.Button.TextButton"
+            style="@style/VietGa.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reset"
@@ -98,7 +98,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/search_btn"
-            style="@style/Neko.Button.Primary"
+            style="@style/VietGa.Button.Primary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"

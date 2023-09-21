@@ -13,7 +13,6 @@ import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-import org.nekomanga.core.R
 import tachiyomi.core.util.system.DeviceUtil
 import tachiyomi.core.util.system.WebViewUtil
 import tachiyomi.core.util.system.setDefaultSettings
@@ -57,7 +56,7 @@ abstract class WebViewInterceptor(
 
         if (!WebViewUtil.supportsWebView(context)) {
             launchUI {
-                context.toast(R.string.information_webview_required, Toast.LENGTH_LONG)
+                context.toast("WebView is required for VietGa", Toast.LENGTH_LONG)
             }
             return response
         }

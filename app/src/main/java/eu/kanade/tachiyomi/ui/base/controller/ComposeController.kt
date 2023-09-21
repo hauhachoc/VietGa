@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.runtime.Composable
 import eu.kanade.tachiyomi.databinding.EmptyComposeControllerBinding
 import eu.kanade.tachiyomi.ui.base.presenter.BaseCoroutinePresenter
-import org.nekomanga.presentation.theme.NekoTheme
+import org.nekomanga.presentation.theme.VietGaTheme
 
 abstract class BaseComposeController<PS : BaseCoroutinePresenter<*>>(bundle: Bundle? = null) :
     BaseCoroutineController<EmptyComposeControllerBinding, BaseCoroutinePresenter<*>>(bundle) {
@@ -17,7 +17,7 @@ abstract class BaseComposeController<PS : BaseCoroutinePresenter<*>>(bundle: Bun
         super.onViewCreated(view)
         binding.root.consumeWindowInsets = false
         binding.root.setContent {
-            NekoTheme {
+            VietGaTheme {
                 ScreenContent()
             }
         }
@@ -42,7 +42,7 @@ abstract class BasicComposeController : BaseController<EmptyComposeControllerBin
         hideToolbar()
         super.onViewCreated(view)
         binding.root.setContent {
-            NekoTheme {
+            VietGaTheme {
                 ScreenContent()
             }
         }

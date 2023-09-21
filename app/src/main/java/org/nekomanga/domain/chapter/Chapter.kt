@@ -8,7 +8,7 @@ import eu.kanade.tachiyomi.source.SourceManager
 import eu.kanade.tachiyomi.source.model.SChapter
 import eu.kanade.tachiyomi.source.online.HttpSource
 import eu.kanade.tachiyomi.util.chapter.ChapterUtil
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 
 data class SimpleChapter(
     val id: Long,
@@ -51,7 +51,7 @@ data class SimpleChapter(
     }
 
     fun commentUrl(threadId: String): String {
-        return MdConstants.forumUrl + threadId
+        return Constants.forumUrl + threadId
     }
 
     fun toSChapter(): SChapter {

@@ -142,7 +142,7 @@ import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.preferences.toggle
 
@@ -1547,7 +1547,7 @@ class ReaderActivity : BaseActivity<ReaderActivityBinding>() {
                 R.string.chapter_,
                 decimalFormat.format(chapter.chapter_number),
             )
-        }, $pageNumber, <${MdConstants.baseUrl + manga.url}>"
+        }, $pageNumber, <${Constants.baseUrl + manga.url}>"
 
         val stream = file.getUriCompat(this)
         val intent = Intent(Intent.ACTION_SEND).apply {
@@ -1608,7 +1608,7 @@ class ReaderActivity : BaseActivity<ReaderActivityBinding>() {
                         if (threadId == null) {
                             toast(R.string.comments_unavailable, duration = Toast.LENGTH_SHORT)
                         } else {
-                            this@ReaderActivity.openInBrowser(MdConstants.forumUrl + threadId)
+                            this@ReaderActivity.openInBrowser(Constants.forumUrl + threadId)
                         }
                     }
                 }

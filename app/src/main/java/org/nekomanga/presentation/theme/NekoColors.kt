@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
-class NekoColors {
+class VietGaColors {
     companion object {
         const val highAlphaHighContrast = 1f
         const val highAlphaLowContrast = .87f
@@ -69,5 +69,5 @@ class DynamicRippleTheme(val color: Color) : RippleTheme {
 
 fun dynamicTextSelectionColor(color: Color) = TextSelectionColors(
     handleColor = color,
-    backgroundColor = color.copy(alpha = NekoColors.disabledAlphaHighContrast),
+    backgroundColor = color.copy(alpha = VietGaColors.disabledAlphaHighContrast),
 )

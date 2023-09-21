@@ -3,13 +3,13 @@
     <!-- Application Colors -->
     <color name="primaryVariantTachiyomi">@color/md_white_1000</color>
     <color name="colorPrimaryInactive">#C2424242</color>
-    <color name="primaryTachiyomi">@color/neko_primary</color>
+    <color name="primaryTachiyomi">@color/VietGa_primary</color>
     <color name="onPrimaryTachiyomi">@color/md_white_1000</color>
-    <color name="primaryInverseTachiyomi">@color/neko_primary</color>
+    <color name="primaryInverseTachiyomi">@color/VietGa_primary</color>
     <color name="splashBackground">@color/primaryTachiyomi</color>
-    <color name="secondaryTachiyomi">@color/neko_accent</color>
+    <color name="secondaryTachiyomi">@color/VietGa_accent</color>
     <color name="rippleColorTachiyomi">@color/md_black_1000_54</color>
-    <color name="secondaryVariantTachiyomi">@color/neko_primary</color>
+    <color name="secondaryVariantTachiyomi">@color/VietGa_primary</color>
     <color name="actionModeShadow">@color/md_black_1000_38</color>
     <color name="gray_button">#404040</color>
     <color name="material_red_500">#F44336</color>
@@ -20,7 +20,7 @@
 
     <color name="read_chapter">@color/material_on_background_disabled</color>
 
-    <color name="total_badge">@color/neko_green_complementary</color>
+    <color name="total_badge">@color/VietGa_green_complementary</color>
     <color name="total_badge_text">@color/md_white_1000</color>
 
     <color name="colorAmoledPrimary">@color/md_black_1000</color>
@@ -29,7 +29,7 @@
 
     <color name="strong_divider">@color/md_black_1000_38</color>
     <color name="divider">@color/md_black_1000_12</color>
-    <color name="download">@color/neko_green</color>
+    <color name="download">@color/VietGa_green</color>
 
     <color name="background">@color/md_grey_50</color>
     <color name="dialog">@color/md_white_1000</color>
@@ -121,25 +121,25 @@
     <color name="outrun_dark_purple">#201147</color>
 
 
-    <color name="neko_primary">#101820</color>
-    <color name="neko_accent">#101820</color>
-    <color name="neko_variant">#2E2157</color>
+    <color name="VietGa_primary">#101820</color>
+    <color name="VietGa_accent">#101820</color>
+    <color name="VietGa_variant">#2E2157</color>
 
 
-    <color name="neko_green">#3DDA83</color>
-    <color name="neko_green_complementary">#aa206c</color>
-    <color name="neko_green_darker">#20aa5e</color>
+    <color name="VietGa_green">#3DDA83</color>
+    <color name="VietGa_green_complementary">#aa206c</color>
+    <color name="VietGa_green_darker">#20aa5e</color>
     <color name="gold">#D4AF37</color>
 
     <color name="splash_background">#FF6784</color>
 
 
-    <color name="neko_miami_primary">#41B6E6</color>
-    <color name="neko_miami_primary_variant">#000000</color>
-    <color name="neko_miami_status">#241734</color>
-    <color name="neko_miami_accent">#DB3EB1</color>
-    <color name="neko_miami_dark_accent">#AFDB3EB1</color>
-    <color name="neko_miami_badge_1">#F706CF</color>
+    <color name="VietGa_miami_primary">#41B6E6</color>
+    <color name="VietGa_miami_primary_variant">#000000</color>
+    <color name="VietGa_miami_status">#241734</color>
+    <color name="VietGa_miami_accent">#DB3EB1</color>
+    <color name="VietGa_miami_dark_accent">#AFDB3EB1</color>
+    <color name="VietGa_miami_badge_1">#F706CF</color>
 
     <!-- Strawberry Daiquiri Theme -->
     <color name="primaryStrawberry">#d31d3b</color>
@@ -169,6 +169,6 @@
     <!-- MangaDex Theme -->
     <color name="secondaryMangaDex">#FF6740</color>
 
-    <color name="new_neko_accent">#FF6784</color>
+    <color name="new_VietGa_accent">#FF6784</color>
 
 </resources>

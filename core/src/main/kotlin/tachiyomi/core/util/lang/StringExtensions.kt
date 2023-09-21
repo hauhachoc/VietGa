@@ -16,7 +16,6 @@ import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import androidx.core.text.parseAsHtml
 import java.util.Locale
-import org.nekomanga.core.R
 import org.nekomanga.domain.network.ResultError
 import tachiyomi.core.util.system.getResourceColor
 
@@ -143,7 +142,7 @@ fun String.withSubtitle(context: Context, subtitle: String): Spanned {
 }
 
 fun String.addBetaTag(context: Context, @AttrRes color: Int): Spanned {
-    val betaText = context.getString(R.string.beta)
+    val betaText = "BETA"
     val betaSpan = SpannableStringBuilder(this + betaText)
     betaSpan.setSpan(
         SuperscriptSpan(),

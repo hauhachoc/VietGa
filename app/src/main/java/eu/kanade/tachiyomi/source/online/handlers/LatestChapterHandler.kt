@@ -16,7 +16,7 @@ import kotlinx.collections.immutable.toPersistentList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.network.ProxyRetrofitQueryMap
 import org.nekomanga.domain.network.ResultError
@@ -30,7 +30,7 @@ class LatestChapterHandler {
 
     private val uniqueManga = mutableSetOf<String>()
 
-    suspend fun getPage(page: Int = 1, blockedScanlatorUUIDs: List<String>, limit: Int = MdConstants.Limits.latest): Result<MangaListPage, ResultError> {
+    suspend fun getPage(page: Int = 1, blockedScanlatorUUIDs: List<String>, limit: Int = Constants.Limits.latest): Result<MangaListPage, ResultError> {
         if (page == 1) uniqueManga.clear()
         return withContext(Dispatchers.IO) {
             val offset = MdUtil.getLatestChapterListOffset(page)
@@ -52,7 +52,7 @@ class LatestChapterHandler {
             val result = chapterListDto.data
                 .groupBy { chapterListDto ->
                     chapterListDto.relationships
-                        .first { relationshipDto -> relationshipDto.type == MdConstants.Types.manga }.id
+                        .first { relationshipDto -> relationshipDto.type == Constants.Types.manga }.id
                 }.filterNot { uniqueManga.contains(it.key) }
 
             val mangaIds = result.keys.toList()
@@ -60,10 +60,10 @@ class LatestChapterHandler {
             uniqueManga.addAll(mangaIds)
 
             val allContentRating = listOf(
-                MdConstants.ContentRating.safe,
-                MdConstants.ContentRating.suggestive,
-                MdConstants.ContentRating.erotica,
-                MdConstants.ContentRating.pornographic,
+                Constants.ContentRating.safe,
+                Constants.ContentRating.suggestive,
+                Constants.ContentRating.erotica,
+                Constants.ContentRating.pornographic,
             )
 
             val queryParameters =

@@ -267,7 +267,7 @@ class SettingsBackupController : SettingsController() {
                 val type = BackupConst.BACKUP_TYPE_FULL
                 val results = BackupFileValidator().validate(activity, uri)
 
-                var message = activity.getString(R.string.restore_neko)
+                var message = activity.getString(R.string.restore_VietGa)
 
                 if (results.missingMangaDexEntries) {
                     message += "\n\nNo MangaDex manga found in the backup."

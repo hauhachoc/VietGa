@@ -3,7 +3,7 @@ package eu.kanade.tachiyomi.source.online.utils
 import androidx.annotation.StringRes
 import eu.kanade.tachiyomi.source.model.SManga
 import eu.kanade.tachiyomi.source.online.models.dto.MangaDataDto
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.manga.SourceManga
 
 fun MangaDataDto.toBasicManga(coverQuality: Int = 0, useNoCoverUrl: Boolean = true): SManga {
@@ -17,21 +17,21 @@ fun MangaDataDto.toBasicManga(coverQuality: Int = 0, useNoCoverUrl: Boolean = tr
         )
 
         thumbnail_url = this@toBasicManga.relationships
-            .firstOrNull { relationshipDto -> relationshipDto.type == MdConstants.Types.coverArt }
+            .firstOrNull { relationshipDto -> relationshipDto.type == Constants.Types.coverArt }
             ?.attributes?.fileName
             ?.let { coverFileName ->
                 MdUtil.cdnCoverUrl(this@toBasicManga.id, coverFileName, coverQuality)
-            } ?: if (useNoCoverUrl) MdConstants.noCoverUrl else null
+            } ?: if (useNoCoverUrl) Constants.noCoverUrl else null
     }
 }
 
 fun MangaDataDto.toSourceManga(coverQuality: Int = 0, useNoCoverUrl: Boolean = true, displayText: String = "", @StringRes displayTextRes: Int? = null): SourceManga {
     val thumbnail = this@toSourceManga.relationships
-        .firstOrNull { relationshipDto -> relationshipDto.type == MdConstants.Types.coverArt }
+        .firstOrNull { relationshipDto -> relationshipDto.type == Constants.Types.coverArt }
         ?.attributes?.fileName
         ?.let { coverFileName ->
             MdUtil.cdnCoverUrl(this@toSourceManga.id, coverFileName, coverQuality)
-        } ?: if (useNoCoverUrl) MdConstants.noCoverUrl else ""
+        } ?: if (useNoCoverUrl) Constants.noCoverUrl else ""
 
     return SourceManga(
         url = "/title/" + this@toSourceManga.id,

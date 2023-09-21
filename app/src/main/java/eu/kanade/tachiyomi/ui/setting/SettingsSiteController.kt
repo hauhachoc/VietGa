@@ -24,7 +24,7 @@ import eu.kanade.tachiyomi.widget.preference.SiteLoginPreference
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
 
@@ -50,7 +50,7 @@ class SettingsSiteController :
                     }
 
                     false -> {
-                        val url = MdConstants.Login.authUrl(preferences.codeVerifier().get())
+                        val url = Constants.Login.authUrl(preferences.codeVerifier().get())
                         when (BuildConfig.DEBUG) {
                             true -> activity?.openInFirefox(url)
                             false -> activity?.openInBrowser(url)
@@ -84,15 +84,15 @@ class SettingsSiteController :
                 R.string.content_rating_pornographic,
             )
             entryValues = listOf(
-                MdConstants.ContentRating.safe,
-                MdConstants.ContentRating.suggestive,
-                MdConstants.ContentRating.erotica,
-                MdConstants.ContentRating.pornographic,
+                Constants.ContentRating.safe,
+                Constants.ContentRating.suggestive,
+                Constants.ContentRating.erotica,
+                Constants.ContentRating.pornographic,
             )
 
-            defValue = setOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive)
+            defValue = setOf(Constants.ContentRating.safe, Constants.ContentRating.suggestive)
 
-            defaultValue = listOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive)
+            defaultValue = listOf(Constants.ContentRating.safe, Constants.ContentRating.suggestive)
         }
 
         switchPreference {

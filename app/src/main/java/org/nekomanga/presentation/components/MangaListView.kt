@@ -148,7 +148,7 @@ private fun MangaListSubtitle(text: String, @StringRes textRes: Int?) {
         Text(
             text = displayText,
             style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )

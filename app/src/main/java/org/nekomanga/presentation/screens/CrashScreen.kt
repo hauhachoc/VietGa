@@ -94,7 +94,7 @@ fun CrashScreen(
                 style = MaterialTheme.typography.titleLarge,
             )
             Text(
-                text = stringResource(R.string.crash_screen_description, stringResource(id = R.string.app_name_neko)),
+                text = stringResource(R.string.crash_screen_description, stringResource(id = R.string.app_name_VietGa)),
                 modifier = Modifier.padding(horizontal = Padding.medium),
             )
             Box(

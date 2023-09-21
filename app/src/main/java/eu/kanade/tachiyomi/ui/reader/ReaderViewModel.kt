@@ -73,7 +73,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.security.SecurityPreferences
 import org.nekomanga.domain.chapter.toSimpleChapter
@@ -286,7 +286,7 @@ class ReaderViewModel(
     }
 
     suspend fun loadChapterURL(urlChapterId: String) {
-        val dbChapter = db.getChapter(MdConstants.chapterSuffix + urlChapterId).executeAsBlocking()
+        val dbChapter = db.getChapter(Constants.chapterSuffix + urlChapterId).executeAsBlocking()
         if (dbChapter?.manga_id != null) {
             val dbManga = db.getManga(dbChapter.manga_id!!).executeAsBlocking()
             if (dbManga != null) {
@@ -322,7 +322,7 @@ class ReaderViewModel(
 
             if (chapters.isNotEmpty()) {
                 val (newChapters, _) = syncChaptersWithSource(db, chapters, manga)
-                val currentChapter = newChapters.find { it.url == MdConstants.chapterSuffix + urlChapterId }
+                val currentChapter = newChapters.find { it.url == Constants.chapterSuffix + urlChapterId }
                 if (currentChapter?.id != null) {
                     withContext(Dispatchers.Main) {
                         init(manga.id!!, currentChapter.id!!)
@@ -847,7 +847,7 @@ class ReaderViewModel(
         // Pictures directory.
         val baseDir = Environment.getExternalStorageDirectory().absolutePath +
             File.separator + Environment.DIRECTORY_PICTURES +
-            File.separator + context.getString(R.string.app_name_neko)
+            File.separator + context.getString(R.string.app_name_VietGa)
         val destDir = if (preferences.folderPerManga().get()) {
             File(baseDir + File.separator + DiskUtil.buildValidFilename(manga.title))
         } else {
@@ -881,7 +881,7 @@ class ReaderViewModel(
             // Pictures directory.
             val baseDir = Environment.getExternalStorageDirectory().absolutePath +
                 File.separator + Environment.DIRECTORY_PICTURES +
-                File.separator + context.getString(R.string.app_name_neko)
+                File.separator + context.getString(R.string.app_name_VietGa)
             val destDir = if (preferences.folderPerManga().get()) {
                 File(baseDir + File.separator + DiskUtil.buildValidFilename(manga.title))
             } else {

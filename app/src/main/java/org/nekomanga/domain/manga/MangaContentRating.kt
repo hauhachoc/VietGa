@@ -2,14 +2,14 @@ package org.nekomanga.domain.manga
 
 import eu.kanade.tachiyomi.R
 import eu.kanade.tachiyomi.util.lang.capitalizeWords
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 
 enum class MangaContentRating(val key: String, val nameRes: Int) {
-    Safe(MdConstants.ContentRating.safe, R.string.safe),
-    Suggestive(MdConstants.ContentRating.suggestive, R.string.suggestive),
-    Erotica(MdConstants.ContentRating.erotica, R.string.erotica),
-    Pornographic(MdConstants.ContentRating.pornographic, R.string.pornographic),
-    Unknown(MdConstants.ContentRating.unknown, R.string.unknown),
+    Safe(Constants.ContentRating.safe, R.string.safe),
+    Suggestive(Constants.ContentRating.suggestive, R.string.suggestive),
+    Erotica(Constants.ContentRating.erotica, R.string.erotica),
+    Pornographic(Constants.ContentRating.pornographic, R.string.pornographic),
+    Unknown(Constants.ContentRating.unknown, R.string.unknown),
     ;
 
     fun prettyPrint(): String {

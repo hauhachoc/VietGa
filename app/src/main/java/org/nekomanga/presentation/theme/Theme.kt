@@ -8,7 +8,7 @@ import com.google.accompanist.themeadapter.material3.createMdc3Theme
 import org.nekomanga.presentation.theme.Typefaces.appTypography
 
 @Composable
-fun NekoTheme(
+fun VietGaTheme(
     content: @Composable () -> Unit,
 ) {
     val context = LocalContext.current

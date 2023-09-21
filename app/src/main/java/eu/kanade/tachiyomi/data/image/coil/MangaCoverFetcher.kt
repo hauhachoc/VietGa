@@ -171,7 +171,7 @@ class MangaCoverFetcher(
     private fun newRequest(): Request {
         val request = Request.Builder()
             .url(url)
-            .headers(sourceLazy.value.headers.newBuilder().add("x-request-id", "Neko-" + UUID.randomUUID()).build())
+            .headers(sourceLazy.value.headers.newBuilder().add("x-request-id", "VietGa-" + UUID.randomUUID()).build())
             // Support attaching custom data to the network request.
             .tag(Parameters::class.java, options.parameters)
 

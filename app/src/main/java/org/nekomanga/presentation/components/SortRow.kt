@@ -31,7 +31,7 @@ fun SortRow(
     themeColorState: ThemeColorState = defaultThemeColorState(),
 ) {
     val (tintColor, textColor) = when (disabled) {
-        true -> MaterialTheme.colorScheme.onSurface.copy(NekoColors.disabledAlphaLowContrast) to MaterialTheme.colorScheme.onSurface.copy(NekoColors.disabledAlphaLowContrast)
+        true -> MaterialTheme.colorScheme.onSurface.copy(VietGaColors.disabledAlphaLowContrast) to MaterialTheme.colorScheme.onSurface.copy(VietGaColors.disabledAlphaLowContrast)
         false -> themeColorState.buttonColor to MaterialTheme.colorScheme.onSurface
     }
 

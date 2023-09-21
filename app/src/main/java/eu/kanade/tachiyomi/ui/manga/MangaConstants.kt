@@ -10,7 +10,7 @@ import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.category.CategoryItem
 import org.nekomanga.domain.chapter.ChapterItem
 import org.nekomanga.domain.chapter.SimpleChapter
@@ -140,8 +140,8 @@ object MangaConstants {
     }
 
     enum class SortState(val key: String) {
-        Ascending(MdConstants.Sort.ascending),
-        Descending(MdConstants.Sort.descending),
+        Ascending(Constants.Sort.ascending),
+        Descending(Constants.Sort.descending),
         None(""),
         ;
     }

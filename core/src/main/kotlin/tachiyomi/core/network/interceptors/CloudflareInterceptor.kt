@@ -12,7 +12,6 @@ import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
-import org.nekomanga.core.R
 import tachiyomi.core.network.AndroidCookieJar
 import tachiyomi.core.util.system.WebViewClientCompat
 import tachiyomi.core.util.system.isOutdated
@@ -44,7 +43,7 @@ class CloudflareInterceptor(
         // Because OkHttp's enqueue only handles IOExceptions, wrap the exception so that
         // we don't crash the entire app
         catch (e: CloudflareBypassException) {
-            throw IOException(context.getString(R.string.information_cloudflare_bypass_failure))
+            throw IOException("Failed to bypass Cloudflare")
         } catch (e: Exception) {
             throw IOException(e)
         }
@@ -126,7 +125,7 @@ class CloudflareInterceptor(
         if (!cloudflareBypassed) {
             // Prompt user to update WebView if it seems too outdated
             if (isWebViewOutdated) {
-                context.toast(R.string.information_webview_outdated, Toast.LENGTH_LONG)
+                context.toast("Please update the WebView app for better compatibility", Toast.LENGTH_LONG)
             }
 
             throw CloudflareBypassException()

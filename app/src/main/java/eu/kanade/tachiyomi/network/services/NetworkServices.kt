@@ -6,7 +6,7 @@ import eu.kanade.tachiyomi.network.NetworkHelper
 import java.util.concurrent.TimeUnit
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import retrofit2.Retrofit
 import uy.kohesive.injekt.injectLazy
 
@@ -17,21 +17,21 @@ class NetworkServices() {
     private val jsonRetrofitClient = Retrofit.Builder().addConverterFactory(
         json.asConverterFactory("application/json".toMediaType()),
     )
-        .baseUrl(MdConstants.baseUrl)
+        .baseUrl(Constants.baseUrl)
         .addCallAdapterFactory(ApiResponseCallAdapterFactory.create())
         .client(networkHelper.client)
 
     val service: MangaDexService =
-        jsonRetrofitClient.baseUrl(MdConstants.Api.baseUrl)
+        jsonRetrofitClient.baseUrl(Constants.Api.baseUrl)
             .client(networkHelper.mangadexClient).build()
             .create(MangaDexService::class.java)
 
     val atHomeService: MangaDexAtHomeService =
-        jsonRetrofitClient.baseUrl(MdConstants.Api.baseUrl)
+        jsonRetrofitClient.baseUrl(Constants.Api.baseUrl)
             .client(networkHelper.atHomeClient).build()
             .create(MangaDexAtHomeService::class.java)
 
-    val authService: MangaDexAuthorizedUserService = jsonRetrofitClient.baseUrl(MdConstants.Api.baseUrl)
+    val authService: MangaDexAuthorizedUserService = jsonRetrofitClient.baseUrl(Constants.Api.baseUrl)
         .client(networkHelper.authClient).build()
         .create(MangaDexAuthorizedUserService::class.java)
 

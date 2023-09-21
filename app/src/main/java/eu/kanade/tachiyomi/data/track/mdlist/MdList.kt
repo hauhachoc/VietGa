@@ -17,7 +17,7 @@ import eu.kanade.tachiyomi.source.online.utils.MdUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
@@ -140,7 +140,7 @@ class MdList(private val context: Context, id: Int) : TrackService(id) {
         val track = Track.create(TrackManager.MDLIST)
         track.manga_id = manga.id!!
         track.status = FollowStatus.UNFOLLOWED.int
-        track.tracking_url = MdConstants.baseUrl + manga.url
+        track.tracking_url = Constants.baseUrl + manga.url
         track.title = manga.title
         return track
     }
@@ -153,7 +153,7 @@ class MdList(private val context: Context, id: Int) : TrackService(id) {
         val track = TrackSearch.create(TrackManager.MDLIST).apply {
             this.manga_id = manga.id!!
             this.status = FollowStatus.UNFOLLOWED.int
-            this.tracking_url = MdConstants.baseUrl + manga.url
+            this.tracking_url = Constants.baseUrl + manga.url
             this.title = manga.title
         }
 

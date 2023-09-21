@@ -104,7 +104,7 @@ class MangaLife : ReducedHttpSource() {
                         } else {
                             // The old logic would apply the name from either the "ChapterName" or Type + chapterNumber
                             // To match dex more this doesn't use name as it doesnt seem used often see Gantz (which doesnt make it here anyways cause its
-                            // a manga)) and the text the extension shows for that would be ex. Special Osaka 1 vs Neko Special 1 - Special Osaka 1
+                            // a manga)) and the text the extension shows for that would be ex. Special Osaka 1 vs VietGa Special 1 - Special Osaka 1
                             // get volume
                             var volResult = chp.type.substringBefore(" -", "")
                             if (volResult.startsWith("S")) {

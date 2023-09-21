@@ -69,7 +69,7 @@ private fun ResultRow(
                 Text(
                     text = displayResult.information,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast),
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast),
                     maxLines = 4,
                     overflow = TextOverflow.Ellipsis,
                 )

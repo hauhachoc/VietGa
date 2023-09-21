@@ -51,7 +51,7 @@ import java.text.DateFormat
 import kotlinx.collections.immutable.ImmutableList
 import org.nekomanga.domain.track.TrackItem
 import org.nekomanga.domain.track.TrackServiceItem
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 import org.nekomanga.presentation.components.dialog.RemoveTrackingDialog
 import org.nekomanga.presentation.components.dialog.TrackingChapterDialog
 import org.nekomanga.presentation.components.dialog.TrackingScoreDialog
@@ -195,7 +195,7 @@ private fun TrackingServiceItem(
 ) {
     OutlinedCard(
         shape = RoundedCornerShape(Shapes.sheetRadius),
-        border = BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaLowContrast)),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaLowContrast)),
         modifier = Modifier.padding(horizontal = 8.dp),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -341,14 +341,14 @@ private fun TrackRowTwo(track: TrackItem, service: TrackServiceItem, statusClick
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
                             stringResource(id = R.string.score),
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast),
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast),
                             style = MaterialTheme.typography.bodyMedium,
                         )
                         Icon(
                             imageVector = Icons.Default.Star,
                             contentDescription = null,
                             modifier = Modifier.size(12.dp),
-                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast),
+                            tint = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast),
                         )
                     }
                 }
@@ -370,7 +370,7 @@ fun TrackRowThree(track: TrackItem, dateFormat: DateFormat, startDateClick: () -
         TrackingBox(clickable = startDateClick) {
             val (startText, startColor) = when (track.startedReadingDate != 0L) {
                 true -> dateFormat.format(track.startedReadingDate) to MaterialTheme.colorScheme.onSurface
-                false -> stringResource(id = R.string.started_reading_date) to MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast)
+                false -> stringResource(id = R.string.started_reading_date) to MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast)
             }
             Text(text = startText, color = startColor, style = MaterialTheme.typography.bodyMedium)
         }
@@ -380,7 +380,7 @@ fun TrackRowThree(track: TrackItem, dateFormat: DateFormat, startDateClick: () -
         TrackingBox(clickable = finishDateClick) {
             val (endText, endColor) = when (track.finishedReadingDate != 0L) {
                 true -> dateFormat.format(track.finishedReadingDate) to MaterialTheme.colorScheme.onSurface
-                false -> stringResource(id = R.string.finished_reading_date) to MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaHighContrast)
+                false -> stringResource(id = R.string.finished_reading_date) to MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaHighContrast)
             }
             Text(text = endText, color = endColor, style = MaterialTheme.typography.bodyMedium)
         }

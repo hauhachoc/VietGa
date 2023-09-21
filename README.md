@@ -1,8 +1,8 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/CarlosEsco/Neko"><img src="./.github/readme-images/logo.png" alt="Neko" width="200"></a>
+  <a href="https://github.com/CarlosEsco/VietGa"><img src="./.github/readme-images/logo.png" alt="VietGa" width="200"></a>
   <br>
-  Neko
+  VietGa
   <br>
 </h1>
 
@@ -10,9 +10,9 @@
 <p align="center">A Free, Open source unofficial manga reader for MangaDex</p>
 
  <p align="center">
-    <a href="https://github.com/CarlosEsco/Neko/releases/latest"><img src="https://img.shields.io/github/release/CarlosEsco/Neko.svg?maxAge=3600&style=for-the-badge&label=download"/></a>
-    <a href="https://github.com/CarlosEsco/Neko/actions/workflows/ci-draft-release.yml?query=workflow%3A%22Release+app%22"><img src="https://img.shields.io/github/actions/workflow/status/carlosesco/neko/ci-draft-release.yml?branch=main&style=for-the-badge" /></a>
-    <img src="https://img.shields.io/github/stars/CarlosEsco/Neko.svg?style=for-the-badge" />
+    <a href="https://github.com/CarlosEsco/VietGa/releases/latest"><img src="https://img.shields.io/github/release/CarlosEsco/VietGa.svg?maxAge=3600&style=for-the-badge&label=download"/></a>
+    <a href="https://github.com/CarlosEsco/VietGa/actions/workflows/ci-draft-release.yml?query=workflow%3A%22Release+app%22"><img src="https://img.shields.io/github/actions/workflow/status/carlosesco/VietGa/ci-draft-release.yml?branch=main&style=for-the-badge" /></a>
+    <img src="https://img.shields.io/github/stars/CarlosEsco/VietGa.svg?style=for-the-badge" />
     <a href="https://discord.gg/tachiyomi"><img src="https://img.shields.io/discord/349436576037732353.svg?style=for-the-badge"/></a>
 
  </p>
@@ -30,7 +30,7 @@ This is a <a href="https://mangadex.org/">MangaDex</a> specific fork of <a href=
 - Use MDList as  Tracker
 - Similar Manga Recommendations
 - Manually sync of Manga to and from Mangadex follows list
-- Sync Followed Manga's read chapters from MangaDex into Neko automatically
+- Sync Followed Manga's read chapters from MangaDex into VietGa automatically
 - Filter by Scanlation Group in chapter list
 - Look at an additional source for missing chapters not hosted on MangaDex
 - Ability to attempt to merge missing chapters from MangaDex with another source
@@ -38,7 +38,7 @@ This is a <a href="https://mangadex.org/">MangaDex</a> specific fork of <a href=
 
 
 ## Download
-Get the app from our [releases page](https://github.com/CarlosEsco/Neko/releases).
+Get the app from our [releases page](https://github.com/CarlosEsco/VietGa/releases).
 
 ## Thanks
 - <a href="https://github.com/inorichi">Inorichi</a> for making the original Tachiyomi

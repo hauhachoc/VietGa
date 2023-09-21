@@ -51,7 +51,7 @@ fun TriStateCheckboxRow(
             ),
         )
         Gap(4.dp)
-        Text(text = rowText, color = if (!disabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(NekoColors.disabledAlphaLowContrast), style = rowTextStyle)
+        Text(text = rowText, color = if (!disabled) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurface.copy(VietGaColors.disabledAlphaLowContrast), style = rowTextStyle)
     }
 }
 
@@ -86,7 +86,7 @@ fun TriStateFilterChip(
             selectedLeadingIconColor = MaterialTheme.colorScheme.primary,
         ),
         border = FilterChipDefaults.filterChipBorder(
-            borderColor = MaterialTheme.colorScheme.onSurface.copy(NekoColors.veryLowContrast),
+            borderColor = MaterialTheme.colorScheme.onSurface.copy(VietGaColors.veryLowContrast),
             selectedBorderColor = MaterialTheme.colorScheme.surfaceColorAtElevation(8.dp),
         ),
     )

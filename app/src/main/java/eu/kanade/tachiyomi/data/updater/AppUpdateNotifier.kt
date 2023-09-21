@@ -52,7 +52,7 @@ internal class AppUpdateNotifier(private val context: Context) {
         val pendingIntent = NotificationReceiver.openUpdatePendingActivity(context, body, url)
         releasePageUrl = releaseUrl
         with(notificationBuilder) {
-            setContentTitle(context.getString(R.string.app_name_neko))
+            setContentTitle(context.getString(R.string.app_name_VietGa))
             setContentText(context.getString(R.string.new_version_available))
             setContentIntent(pendingIntent)
             setAutoCancel(true)
@@ -178,7 +178,7 @@ internal class AppUpdateNotifier(private val context: Context) {
     fun onInstallFinished() {
         with(NotificationCompat.Builder(context, Notifications.Channel.Updated)) {
             setContentTitle(context.getString(R.string.updated_to_, BuildConfig.VERSION_NAME))
-            setSmallIcon(R.drawable.ic_neko_notification)
+            setSmallIcon(R.drawable.ic_vietga_notification)
             setAutoCancel(true)
             setOngoing(false)
             setProgress(0, 0, false)

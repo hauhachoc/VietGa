@@ -28,7 +28,7 @@ import org.nekomanga.core.loggycat
 import uy.kohesive.injekt.injectLazy
 
 /**
- * WorkManager job that syncs FollowsList to and from Neko
+ * WorkManager job that syncs FollowsList to and from VietGa
  */
 class StatusSyncJob(
     val context: Context,
@@ -42,7 +42,7 @@ class StatusSyncJob(
     private val progressNotification =
         applicationContext.notificationBuilder(Notifications.Channel.Status).apply {
             setContentTitle(context.getString(R.string.syncing_follows))
-            setSmallIcon(R.drawable.ic_neko_notification)
+            setSmallIcon(R.drawable.ic_vietga_notification)
             setAutoCancel(true)
             addAction(
                 R.drawable.ic_close_24dp,

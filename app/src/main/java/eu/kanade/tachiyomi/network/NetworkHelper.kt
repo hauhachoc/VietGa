@@ -6,6 +6,7 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.common.net.HttpHeaders
 import eu.kanade.tachiyomi.BuildConfig
 import eu.kanade.tachiyomi.data.preference.PreferencesHelper
+import eu.kanade.tachiyomi.source.online.HttpSource
 import eu.kanade.tachiyomi.source.online.MangaDexLoginHelper
 import java.io.File
 import java.util.concurrent.TimeUnit
@@ -13,14 +14,13 @@ import kotlinx.serialization.json.Json
 import okhttp3.Cache
 import okhttp3.Headers
 import okhttp3.OkHttpClient
-import org.nekomanga.constants.Constants
-import org.nekomanga.constants.MdConstants
 import org.nekomanga.core.network.NetworkPreferences
 import org.nekomanga.core.network.interceptor.HeadersInterceptor
 import org.nekomanga.core.network.interceptor.UserAgentInterceptor
 import org.nekomanga.core.network.interceptor.authInterceptor
 import org.nekomanga.core.network.interceptor.loggingInterceptor
 import org.nekomanga.core.network.interceptor.rateLimit
+import org.nekomanga.util.Constants
 import tachiyomi.core.network.AndroidCookieJar
 import tachiyomi.core.network.PREF_DOH_360
 import tachiyomi.core.network.PREF_DOH_ADGUARD
@@ -104,26 +104,27 @@ class NetworkHelper(val context: Context) {
     }
 
     private fun buildAtHomeRateLimitedClient(): OkHttpClient {
-        return baseClientBuilder.rateLimit(permits = 40, period = 1, unit = TimeUnit.MINUTES).addInterceptor(HeadersInterceptor(MdConstants.baseUrl))
+        return baseClientBuilder.rateLimit(permits = 40, period = 1, unit = TimeUnit.MINUTES).addInterceptor(HeadersInterceptor(
+            Constants.baseUrl))
             .addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json)).build()
     }
 
     private fun buildCdnRateLimitedClient(): OkHttpClient {
-        return baseClientBuilder.rateLimit(20).addInterceptor(HeadersInterceptor(MdConstants.baseUrl)).addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json)).build()
+        return baseClientBuilder.rateLimit(20).addInterceptor(HeadersInterceptor(Constants.baseUrl)).addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json)).build()
     }
 
     private fun buildRateLimitedAuthenticatedClient(): OkHttpClient {
         return buildRateLimitedClient().newBuilder()
             .addNetworkInterceptor(authInterceptor { preferences.sessionToken().get() })
             .authenticator(MangaDexTokenAuthenticator(mangaDexLoginHelper))
-            .addInterceptor(HeadersInterceptor(MdConstants.baseUrl))
+            .addInterceptor(HeadersInterceptor(Constants.baseUrl))
             .addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json)).build()
     }
 
     private fun buildCloudFlareClient(): OkHttpClient {
         return baseClientBuilder
             .addInterceptor(UserAgentInterceptor())
-            .addInterceptor(CloudflareInterceptor(context, cookieManager) { Constants.USER_AGENT })
+            .addInterceptor(CloudflareInterceptor(context, cookieManager) { HttpSource.USER_AGENT })
             .addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json))
             .build()
     }
@@ -132,7 +133,7 @@ class NetworkHelper(val context: Context) {
 
     val client = buildRateLimitedClient()
 
-    val mangadexClient = client.newBuilder().addInterceptor(HeadersInterceptor(MdConstants.baseUrl)).addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json)).build()
+    val mangadexClient = client.newBuilder().addInterceptor(HeadersInterceptor(Constants.baseUrl)).addInterceptor(loggingInterceptor({ networkPreferences.verboseLogging().get() }, json)).build()
 
     val cdnClient = buildCdnRateLimitedClient()
 
@@ -141,8 +142,8 @@ class NetworkHelper(val context: Context) {
     val authClient = buildRateLimitedAuthenticatedClient()
 
     val headers = Headers.Builder().apply {
-        add(HttpHeaders.USER_AGENT, "Neko ${BuildConfig.VERSION_NAME}" + System.getProperty("http.agent"))
-        add(HttpHeaders.REFERER, MdConstants.baseUrl)
+        add(HttpHeaders.USER_AGENT, "VietGa ${BuildConfig.VERSION_NAME}" + System.getProperty("http.agent"))
+        add(HttpHeaders.REFERER, Constants.baseUrl)
         add(HttpHeaders.CONTENT_TYPE, "application/json")
     }.build()
 }

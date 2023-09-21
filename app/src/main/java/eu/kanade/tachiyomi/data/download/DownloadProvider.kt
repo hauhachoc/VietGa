@@ -229,7 +229,7 @@ class DownloadProvider(private val context: Context) {
     }
 
     /**
-     * Returns the download directory name for a source always english to not break with other forks or current neko
+     * Returns the download directory name for a source always english to not break with other forks or current VietGa
      *
      * @param source the source to query.
      */

@@ -23,7 +23,7 @@ import org.nekomanga.core.loggycat
 import uy.kohesive.injekt.injectLazy
 
 /**
- * WorkManager job that syncs tracking from trackers to Neko
+ * WorkManager job that syncs tracking from trackers to VietGa
  */
 class TrackingSyncJob(
     val context: Context,
@@ -38,7 +38,7 @@ class TrackingSyncJob(
     private val progressNotification =
         with(applicationContext.notificationBuilder(Notifications.Channel.Tracking)) {
             setContentTitle(context.getString(R.string.refresh_tracking_metadata))
-            setSmallIcon(R.drawable.ic_neko_notification)
+            setSmallIcon(R.drawable.ic_vietga_notification)
             setAutoCancel(true)
             addAction(
                 R.drawable.ic_close_24dp,
@@ -50,7 +50,7 @@ class TrackingSyncJob(
     private val completeNotification =
         with(applicationContext.notificationBuilder(Notifications.Channel.Tracking)) {
             setContentTitle(context.getString(R.string.refresh_tracking_complete))
-            setSmallIcon(R.drawable.ic_neko_notification)
+            setSmallIcon(R.drawable.ic_vietga_notification)
         }
 
     override suspend fun doWork(): Result = coroutineScope {

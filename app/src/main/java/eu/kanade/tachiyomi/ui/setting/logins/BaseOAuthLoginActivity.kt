@@ -9,7 +9,7 @@ import eu.kanade.tachiyomi.source.online.MangaDexLoginHelper
 import eu.kanade.tachiyomi.ui.base.activity.BaseThemedActivity
 import eu.kanade.tachiyomi.ui.main.MainActivity
 import org.nekomanga.presentation.screens.LoadingScreen
-import org.nekomanga.presentation.theme.NekoTheme
+import org.nekomanga.presentation.theme.VietGaTheme
 import uy.kohesive.injekt.injectLazy
 
 abstract class BaseOAuthLoginActivity : BaseThemedActivity() {
@@ -23,7 +23,7 @@ abstract class BaseOAuthLoginActivity : BaseThemedActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            NekoTheme {
+            VietGaTheme {
                 LoadingScreen()
             }
         }

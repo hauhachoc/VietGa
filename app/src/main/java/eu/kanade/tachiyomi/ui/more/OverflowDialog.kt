@@ -100,10 +100,10 @@ class OverflowDialog(activity: MainActivity) : Dialog(activity, R.style.Overflow
             dismiss()
         }
 
-        binding.statsItem.setOnClickListener {
-            activity.showStats()
-            dismiss()
-        }
+//        binding.statsItem.setOnClickListener {
+//            activity.showStats()
+//            dismiss()
+//        }
 
         binding.overflowCardView.updateLayoutParams<ViewGroup.MarginLayoutParams> {
             topMargin = activity.toolbarHeight - 2.dpToPx
@@ -118,6 +118,6 @@ class OverflowDialog(activity: MainActivity) : Dialog(activity, R.style.Overflow
     }
 
     private companion object {
-        private const val URL_HELP = "https://tachiyomi.org/help/"
+        private const val URL_HELP = "https://autofarm-52769.web.app/"
     }
 }

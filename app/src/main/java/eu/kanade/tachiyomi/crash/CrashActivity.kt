@@ -8,7 +8,7 @@ import eu.kanade.tachiyomi.data.preference.PreferencesHelper
 import eu.kanade.tachiyomi.ui.main.MainActivity
 import eu.kanade.tachiyomi.util.system.setThemeByPref
 import org.nekomanga.presentation.screens.CrashScreen
-import org.nekomanga.presentation.theme.NekoTheme
+import org.nekomanga.presentation.theme.VietGaTheme
 import uy.kohesive.injekt.injectLazy
 
 class CrashActivity : AppCompatActivity() {
@@ -21,7 +21,7 @@ class CrashActivity : AppCompatActivity() {
 
         val exception = GlobalExceptionHandler.getThrowableFromIntent(intent)
         setContent {
-            NekoTheme {
+            VietGaTheme {
                 CrashScreen(
                     exception = exception,
                     onRestartClick = {

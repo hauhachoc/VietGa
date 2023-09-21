@@ -21,7 +21,7 @@ import eu.kanade.tachiyomi.widget.TriStateCheckBox
 import java.util.Date
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.manga.Artwork
 import org.nekomanga.domain.manga.DisplayManga
 import org.nekomanga.domain.manga.SourceManga
@@ -247,7 +247,7 @@ fun Manga.toDisplayManga(displayText: String = "", @StringRes displayTextRes: In
         inLibrary = this.favorite,
         displayText = displayText.replace("_", " ").capitalizeWords(),
         displayTextRes = displayTextRes,
-        currentArtwork = Artwork(mangaId = this.id!!, originalArtwork = this.thumbnail_url ?: MdConstants.noCoverUrl),
+        currentArtwork = Artwork(mangaId = this.id!!, originalArtwork = this.thumbnail_url ?: Constants.noCoverUrl),
     )
 }
 
@@ -282,7 +282,7 @@ fun List<HomePageManga>.resync(db: DatabaseHelper): ImmutableList<HomePageManga>
 fun List<DisplayManga>.resync(db: DatabaseHelper): List<DisplayManga> {
     return this.map {
         val dbManga = db.getManga(it.mangaId).executeAsBlocking()!!
-        it.copy(inLibrary = dbManga.favorite, currentArtwork = it.currentArtwork.copy(url = dbManga.user_cover ?: "", originalArtwork = dbManga.thumbnail_url ?: MdConstants.noCoverUrl))
+        it.copy(inLibrary = dbManga.favorite, currentArtwork = it.currentArtwork.copy(url = dbManga.user_cover ?: "", originalArtwork = dbManga.thumbnail_url ?: Constants.noCoverUrl))
     }
 }
 

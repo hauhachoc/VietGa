@@ -25,7 +25,7 @@ import eu.kanade.tachiyomi.util.system.withIOContext
 import eu.kanade.tachiyomi.util.throws
 import kotlinx.serialization.encodeToString
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.network.ProxyRetrofitQueryMap
 import org.nekomanga.domain.manga.SourceManga
@@ -398,7 +398,7 @@ class SimilarHandler {
         val queryMap = mutableMapOf(
             "limit" to mangaIds.size,
             "ids[]" to mangaIds,
-            "contentRating[]" to listOf(MdConstants.ContentRating.safe, MdConstants.ContentRating.suggestive, MdConstants.ContentRating.erotica, MdConstants.ContentRating.pornographic),
+            "contentRating[]" to listOf(Constants.ContentRating.safe, Constants.ContentRating.suggestive, Constants.ContentRating.erotica, Constants.ContentRating.pornographic),
         )
         val responseBody = networkServices.service.search(ProxyRetrofitQueryMap(queryMap)).onError {
             val type = "searching for manga in similar handler"

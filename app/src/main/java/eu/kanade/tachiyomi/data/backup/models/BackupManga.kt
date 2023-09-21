@@ -41,7 +41,7 @@ data class BackupManga(
     // J2K specific values
     @ProtoNumber(800) var customTitle: String? = null,
 
-    // Neko Values
+    // VietGa Values
     @Deprecated("Use mergeMangaList")
     @ProtoNumber(900)
     var mergedMangaUrl: String? = null,

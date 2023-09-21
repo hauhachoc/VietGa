@@ -35,8 +35,8 @@ fun AppUpdateDialog(release: GithubRelease, onDismissRequest: () -> Unit, onConf
                 item {
                     Markdown(
                         content = body,
-                        colors = nekoMarkdownColors(),
-                        typography = nekoMarkdownTypography(),
+                        colors = VietGaMarkdownColors(),
+                        typography = VietGaMarkdownTypography(),
                     )
                 }
             }
@@ -57,14 +57,14 @@ fun AppUpdateDialog(release: GithubRelease, onDismissRequest: () -> Unit, onConf
 }
 
 @Composable
-private fun nekoMarkdownColors() = markdownColor(
+private fun VietGaMarkdownColors() = markdownColor(
     text = MaterialTheme.colorScheme.onSurface,
     codeText = MaterialTheme.colorScheme.onSurface,
     codeBackground = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f),
 )
 
 @Composable
-private fun nekoMarkdownTypography() = markdownTypography(
+private fun VietGaMarkdownTypography() = markdownTypography(
     h1 = MaterialTheme.typography.headlineMedium,
     h2 = MaterialTheme.typography.headlineSmall,
     h3 = MaterialTheme.typography.titleLarge,

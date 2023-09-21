@@ -82,7 +82,6 @@ import eu.kanade.tachiyomi.ui.manga.MangaDetailController
 import eu.kanade.tachiyomi.ui.more.NewUpdateDialogController
 import eu.kanade.tachiyomi.ui.more.OverflowDialog
 import eu.kanade.tachiyomi.ui.more.about.AboutController
-import eu.kanade.tachiyomi.ui.more.stats.StatsController
 import eu.kanade.tachiyomi.ui.recents.RecentsController
 import eu.kanade.tachiyomi.ui.recents.RecentsPresenter
 import eu.kanade.tachiyomi.ui.security.SecureActivityDelegate
@@ -1093,10 +1092,6 @@ open class MainActivity : BaseActivity<MainActivityBinding>(), DownloadServiceLi
         router.pushController(AboutController().withFadeTransaction())
     }
 
-    fun showStats() {
-        router.pushController(StatsController().withFadeTransaction())
-    }
-
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         ev?.let {
             gestureDetector?.onTouchEvent(it)
@@ -1338,7 +1333,7 @@ open class MainActivity : BaseActivity<MainActivityBinding>(), DownloadServiceLi
         const val SHORTCUT_READER_SETTINGS = "eu.kanade.tachiyomi.READER_SETTINGS"
         const val SHORTCUT_EXTENSIONS = "eu.kanade.tachiyomi.EXTENSIONS"
 
-        const val INTENT_SEARCH = "neko.SEARCH"
+        const val INTENT_SEARCH = "VietGa.SEARCH"
         const val INTENT_SEARCH_QUERY = "query"
         const val INTENT_SEARCH_FILTER = "filter"
 

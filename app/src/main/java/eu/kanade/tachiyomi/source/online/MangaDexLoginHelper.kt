@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit
 import logcat.LogPriority
 import okhttp3.FormBody
 import okhttp3.Headers
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.network.POST
 import tachiyomi.core.network.await
@@ -44,17 +44,17 @@ class MangaDexLoginHelper {
             return false
         }
         val formBody = FormBody.Builder()
-            .add("client_id", MdConstants.Login.clientId)
-            .add("grant_type", MdConstants.Login.refreshToken)
+            .add("client_id", Constants.Login.clientId)
+            .add("grant_type", Constants.Login.refreshToken)
             .add("refresh_token", refreshToken)
             .add("code_verifier", preferences.codeVerifier().get())
-            .add("redirect_uri", MdConstants.Login.redirectUri)
+            .add("redirect_uri", Constants.Login.redirectUri)
             .build()
         val error = kotlin.runCatching {
             with(MdUtil.jsonParser) {
                 val data = networkHelper.client.newCall(
                     POST(
-                        url = MdConstants.Api.baseAuthUrl + MdConstants.Api.token,
+                        url = Constants.Api.baseAuthUrl + Constants.Api.token,
                         body = formBody,
                     ),
                 ).await().parseAs<LoginResponseDto>()
@@ -80,18 +80,18 @@ class MangaDexLoginHelper {
     suspend fun login(authorizationCode: String): Boolean {
 
         val loginFormBody = FormBody.Builder()
-            .add("client_id", MdConstants.Login.clientId)
-            .add("grant_type", MdConstants.Login.authorizationCode)
+            .add("client_id", Constants.Login.clientId)
+            .add("grant_type", Constants.Login.authorizationCode)
             .add("code", authorizationCode)
             .add("code_verifier", preferences.codeVerifier().get())
-            .add("redirect_uri", MdConstants.Login.redirectUri)
+            .add("redirect_uri", Constants.Login.redirectUri)
             .build()
 
         val error = kotlin.runCatching {
             with(MdUtil.jsonParser) {
                 val data = networkHelper.mangadexClient.newCall(
                     POST(
-                        url = MdConstants.Api.baseAuthUrl + MdConstants.Api.token,
+                        url = Constants.Api.baseAuthUrl + Constants.Api.token,
                         body = loginFormBody,
                     ),
                 ).await().parseAs<LoginResponseDto>()
@@ -122,15 +122,15 @@ class MangaDexLoginHelper {
         }
 
         val formBody = FormBody.Builder()
-            .add("client_id", MdConstants.Login.clientId)
+            .add("client_id", Constants.Login.clientId)
             .add("refresh_token", refreshToken)
-            .add("redirect_uri", MdConstants.Login.redirectUri)
+            .add("redirect_uri", Constants.Login.redirectUri)
             .build()
 
         val error = kotlin.runCatching {
             networkHelper.mangadexClient.newCall(
                 POST(
-                    url = MdConstants.Api.baseAuthUrl + MdConstants.Api.logout,
+                    url = Constants.Api.baseAuthUrl + Constants.Api.logout,
                     headers = Headers.Builder().add("Authorization", "Bearer $sessionToken").build(),
                     body = formBody,
                 ),

@@ -206,7 +206,7 @@ fun BoxScope.CompactGridItem(
         modifier = Modifier
             .background(
                 brush = Brush.verticalGradient(
-                    colors = listOf(Color.Transparent, Color.Black.copy(NekoColors.veryLowContrast), Color.Black.copy(NekoColors.highAlphaLowContrast)),
+                    colors = listOf(Color.Transparent, Color.Black.copy(VietGaColors.veryLowContrast), Color.Black.copy(VietGaColors.highAlphaLowContrast)),
                 ),
                 shape = RoundedCornerShape(
                     bottomStart = Shapes.coverRadius,
@@ -263,7 +263,7 @@ fun MangaGridSubtitle(subtitleText: String, isComfortable: Boolean = true) {
             text = subtitleText,
             style = MaterialTheme.typography.bodySmall,
             maxLines = 1,
-            color = if (isComfortable) MaterialTheme.colorScheme.onSurface else Color.White.copy(alpha = NekoColors.mediumAlphaLowContrast),
+            color = if (isComfortable) MaterialTheme.colorScheme.onSurface else Color.White.copy(alpha = VietGaColors.mediumAlphaLowContrast),
             fontWeight = if (isComfortable) FontWeight.Normal else FontWeight.SemiBold,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier

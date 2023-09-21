@@ -33,7 +33,7 @@ import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.compose.Balloon
 import com.skydoves.balloon.compose.rememberBalloonBuilder
 import com.skydoves.balloon.compose.setBackgroundColor
-import org.nekomanga.presentation.components.NekoColors
+import org.nekomanga.presentation.components.VietGaColors
 
 /**
  * This is a Tooltip Icon button, a wrapper around a CombinedClickableIcon Button, in which the long click of the button with show the tooltip
@@ -111,7 +111,7 @@ fun CombinedClickableIconButton(
                 enabledTint
             } else {
                 IconButtonTokens.DisabledIconColor.toColor()
-                    .copy(alpha = NekoColors.disabledAlphaLowContrast)
+                    .copy(alpha = VietGaColors.disabledAlphaLowContrast)
             }
         CompositionLocalProvider(LocalContentColor provides contentColor, content = content)
     }

@@ -33,7 +33,7 @@ class V5MigrationJob(private val context: Context, workerParams: WorkerParameter
     private val progressNotification =
         applicationContext.notificationBuilder(Notifications.Channel.v5Migration).apply {
             setContentTitle(context.getString(R.string.v5_migration_service))
-            setSmallIcon(R.drawable.ic_neko_notification)
+            setSmallIcon(R.drawable.ic_vietga_notification)
             setLargeIcon(notificationBitmap)
             setAutoCancel(true)
             addAction(
@@ -77,7 +77,7 @@ class V5MigrationJob(private val context: Context, workerParams: WorkerParameter
     private fun completeNotification(numberProcessed: Int) {
         val notification =
             applicationContext.notificationBuilder(Notifications.Channel.v5Migration).apply {
-                setSmallIcon(R.drawable.ic_neko_notification)
+                setSmallIcon(R.drawable.ic_vietga_notification)
                 setLargeIcon(notificationBitmap)
                 setAutoCancel(true)
                 setContentTitle(context.getString(R.string.v5_migration_complete))
@@ -99,7 +99,7 @@ class V5MigrationJob(private val context: Context, workerParams: WorkerParameter
         val notification =
             applicationContext.notificationBuilder(Notifications.Channel.v5Migration).apply {
                 setContentTitle(context.getString(R.string.v5_migration_service))
-                setSmallIcon(R.drawable.ic_neko_notification)
+                setSmallIcon(R.drawable.ic_vietga_notification)
                 setLargeIcon(notificationBitmap)
                 setAutoCancel(true)
                 setContentTitle(

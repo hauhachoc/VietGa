@@ -55,7 +55,6 @@ class BrowseController(incomingQuery: String = "") : BaseComposeController<Brows
             randomClick = presenter::randomManga,
             incognitoClick = presenter::toggleIncognitoMode,
             settingsClick = { (this.activity as? MainActivity)?.showSettings() },
-            statsClick = { (this.activity as? MainActivity)?.showStats() },
             aboutClick = { (this.activity as? MainActivity)?.showAbout() },
             helpClick = { (this.activity as? MainActivity)?.openInBrowser("https://tachiyomi.org/help/") },
         )

@@ -643,7 +643,7 @@ class LibraryUpdateService(
     private fun writeErrorFile(errors: Map<Manga, String?>, fileName: String = "errors"): File {
         try {
             if (errors.isNotEmpty()) {
-                val file = createFileInCacheDir("neko_update_$fileName.txt")
+                val file = createFileInCacheDir("VietGa_update_$fileName.txt")
                 file.bufferedWriter().use { out ->
                     // Error file format:
                     // ! Error

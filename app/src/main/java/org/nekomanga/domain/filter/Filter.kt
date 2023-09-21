@@ -5,7 +5,7 @@ import eu.kanade.tachiyomi.source.model.MangaTag
 import eu.kanade.tachiyomi.source.online.utils.MdLang
 import eu.kanade.tachiyomi.source.online.utils.MdSort
 import eu.kanade.tachiyomi.util.lang.isUUID
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.manga.MangaContentRating
 import org.nekomanga.domain.manga.MangaDemographic
 import org.nekomanga.domain.manga.MangaStatus
@@ -29,8 +29,8 @@ data class DexFilters(
 )
 
 enum class TagMode(val key: String) {
-    And(MdConstants.SearchParameters.TagMode.and),
-    Or(MdConstants.SearchParameters.TagMode.or),
+    And(Constants.SearchParameters.TagMode.and),
+    Or(Constants.SearchParameters.TagMode.or),
 }
 
 @kotlinx.serialization.Serializable

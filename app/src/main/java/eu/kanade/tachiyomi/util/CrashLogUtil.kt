@@ -23,12 +23,12 @@ class CrashLogUtil(private val context: Context) {
     val preferences: PreferencesHelper by injectLazy()
 
     private val notificationBuilder = context.notificationBuilder(Notifications.CHANNEL_CRASH_LOGS) {
-        setSmallIcon(R.drawable.ic_neko_notification)
+        setSmallIcon(R.drawable.ic_vietga_notification)
     }
 
     suspend fun dumpLogs(exception: Throwable? = null) = withNonCancellableContext {
         try {
-            val file = context.createFileInCacheDir("neko_crash_logs.txt")
+            val file = context.createFileInCacheDir("VietGa_crash_logs.txt")
             file.appendText(getDebugInfo() + "\n")
 
             if (exception != null) {

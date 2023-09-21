@@ -18,7 +18,7 @@ class MangaDexTokenAuthenticator(private val loginHelper: MangaDexLoginHelper) :
     Authenticator {
 
     private val mutext = Mutex()
-    private val tag = "||Neko-TokenAuthenticator"
+    private val tag = "||VietGa-TokenAuthenticator"
 
     override fun authenticate(route: Route?, response: Response): Request? {
         loggycat(LogPriority.INFO, tag = tag) { "Detected Auth error ${response.code} on ${response.request.url}" }

@@ -15,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.withContext
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.domain.network.ResultError
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
@@ -61,7 +61,7 @@ class ArtworkHandler {
     }
 
     private suspend fun fetchArtwork(mangaUUID: String, offset: Int): Result<RelationshipDtoList, ResultError> {
-        return service.viewArtwork(mangaUUID = mangaUUID, limit = MdConstants.Limits.artwork, offset = offset)
+        return service.viewArtwork(mangaUUID = mangaUUID, limit = Constants.Limits.artwork, offset = offset)
             .getOrResultError("Failed to get artwork")
     }
 }

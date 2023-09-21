@@ -2,5 +2,5 @@
 <full-backup-content>
     <include
         domain="database"
-        path="neko.db" />
+        path="VietGa.db" />
 </full-backup-content>

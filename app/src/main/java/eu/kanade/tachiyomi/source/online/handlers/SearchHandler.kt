@@ -22,7 +22,7 @@ import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import logcat.LogPriority
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 import org.nekomanga.core.loggycat
 import org.nekomanga.core.network.ProxyRetrofitQueryMap
 import org.nekomanga.domain.SourceResult
@@ -46,7 +46,7 @@ class SearchHandler {
     }
 
     suspend fun searchForAuthor(authorQuery: String): Result<ResultListPage, ResultError> {
-        return service.searchAuthor(query = authorQuery, limit = MdConstants.Limits.author)
+        return service.searchAuthor(query = authorQuery, limit = Constants.Limits.author)
             .getOrResultError("trying to search author $authorQuery")
             .andThen { authorListDto ->
 
@@ -62,7 +62,7 @@ class SearchHandler {
     }
 
     suspend fun searchForGroup(groupQuery: String): Result<ResultListPage, ResultError> {
-        return service.searchGroup(query = groupQuery, limit = MdConstants.Limits.group)
+        return service.searchGroup(query = groupQuery, limit = Constants.Limits.group)
             .getOrResultError("trying to search group $groupQuery")
             .andThen { authorListDto ->
 
@@ -81,59 +81,59 @@ class SearchHandler {
         return withContext(Dispatchers.IO) {
             val queryParameters = mutableMapOf<String, Any>()
 
-            queryParameters[MdConstants.SearchParameters.limit] = MdConstants.Limits.manga
-            queryParameters[MdConstants.SearchParameters.offset] = (MdUtil.getMangaListOffset(page))
+            queryParameters[Constants.SearchParameters.limit] = Constants.Limits.manga
+            queryParameters[Constants.SearchParameters.offset] = (MdUtil.getMangaListOffset(page))
             val actualQuery = filters.query.text.replace(WHITESPACE_REGEX, " ")
             if (actualQuery.isNotBlank()) {
-                queryParameters[MdConstants.SearchParameters.titleParam] = actualQuery
+                queryParameters[Constants.SearchParameters.titleParam] = actualQuery
             }
 
             val contentRating = filters.contentRatings.filter { it.state }.map { it.rating.key }
 
             if (contentRating.isNotEmpty()) {
-                queryParameters[MdConstants.SearchParameters.contentRatingParam] = contentRating
+                queryParameters[Constants.SearchParameters.contentRatingParam] = contentRating
             }
 
             val originalLanguage = filters.originalLanguage.filter { it.state }.map { it.language.lang }
             if (originalLanguage.isNotEmpty()) {
-                queryParameters[MdConstants.SearchParameters.originalLanguageParam] = originalLanguage
+                queryParameters[Constants.SearchParameters.originalLanguageParam] = originalLanguage
             }
 
             val demographics = filters.publicationDemographics.filter { it.state }.map { it.demographic.key }
             if (demographics.isNotEmpty()) {
-                queryParameters[MdConstants.SearchParameters.publicationDemographicParam] = demographics
+                queryParameters[Constants.SearchParameters.publicationDemographicParam] = demographics
             }
 
             val status = filters.statuses.filter { it.state }.map { it.status.key }
             if (status.isNotEmpty()) {
-                queryParameters[MdConstants.SearchParameters.statusParam] = status
+                queryParameters[Constants.SearchParameters.statusParam] = status
             }
             val tagsToInclude = filters.tags.filter { it.state == ToggleableState.On }.map { it.tag.uuid }
             if (tagsToInclude.isNotEmpty()) {
-                queryParameters[MdConstants.SearchParameters.includedTagsParam] = tagsToInclude
+                queryParameters[Constants.SearchParameters.includedTagsParam] = tagsToInclude
             }
 
             val tagsToExclude = filters.tags.filter { it.state == ToggleableState.Indeterminate }.map { it.tag.uuid }
             if (tagsToExclude.isNotEmpty()) {
-                queryParameters[MdConstants.SearchParameters.excludedTagsParam] = tagsToExclude
+                queryParameters[Constants.SearchParameters.excludedTagsParam] = tagsToExclude
             }
 
             val sortMode = filters.sort.first { it.state }
-            queryParameters[MdConstants.SearchParameters.sortParam(sortMode.sort.key)] = sortMode.sort.state.key
+            queryParameters[Constants.SearchParameters.sortParam(sortMode.sort.key)] = sortMode.sort.state.key
 
             if (filters.hasAvailableChapters.state) {
-                queryParameters[MdConstants.SearchParameters.availableTranslatedLanguage] = MdUtil.getLangsToShow(preferencesHelper)
+                queryParameters[Constants.SearchParameters.availableTranslatedLanguage] = MdUtil.getLangsToShow(preferencesHelper)
             }
 
-            queryParameters[MdConstants.SearchParameters.includedTagModeParam] = filters.tagInclusionMode.mode.key
-            queryParameters[MdConstants.SearchParameters.excludedTagModeParam] = filters.tagExclusionMode.mode.key
+            queryParameters[Constants.SearchParameters.includedTagModeParam] = filters.tagInclusionMode.mode.key
+            queryParameters[Constants.SearchParameters.excludedTagModeParam] = filters.tagExclusionMode.mode.key
 
             if (filters.authorId.uuid.isNotBlank()) {
-                queryParameters[MdConstants.SearchParameters.authorOrArtist] = filters.authorId.uuid
+                queryParameters[Constants.SearchParameters.authorOrArtist] = filters.authorId.uuid
             }
 
             if (filters.groupId.uuid.isNotBlank()) {
-                queryParameters[MdConstants.SearchParameters.group] = filters.groupId.uuid
+                queryParameters[Constants.SearchParameters.group] = filters.groupId.uuid
             }
 
             service.search(ProxyRetrofitQueryMap(queryParameters))
@@ -151,7 +151,7 @@ class SearchHandler {
     suspend fun recentlyAdded(page: Int): Result<MangaListPage, ResultError> {
         return withContext(Dispatchers.IO) {
             val queryParameters = mutableMapOf<String, Any>()
-            queryParameters["limit"] = MdConstants.Limits.manga
+            queryParameters["limit"] = Constants.Limits.manga
             queryParameters["offset"] = MdUtil.getMangaListOffset(page)
             val contentRatings = preferencesHelper.contentRatingSelections().get().toList()
             if (contentRatings.isNotEmpty()) {
@@ -173,7 +173,7 @@ class SearchHandler {
     suspend fun popularNewTitles(page: Int): Result<MangaListPage, ResultError> {
         return withContext(Dispatchers.IO) {
             val queryParameters = mutableMapOf<String, Any>()
-            queryParameters["limit"] = MdConstants.Limits.manga
+            queryParameters["limit"] = Constants.Limits.manga
             val offset = MdUtil.getMangaListOffset(page)
             queryParameters["offset"] = offset
             val calendar = Calendar.getInstance()

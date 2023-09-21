@@ -101,7 +101,7 @@ fun ChapterRow(
 ) {
     CompositionLocalProvider(LocalRippleTheme provides themeColor.rippleTheme) {
         val dismissState = rememberDismissState(initialValue = DismissValue.Default)
-        NekoSwipeToDismiss(
+        VietGaSwipeToDismiss(
             state = dismissState,
             modifier = Modifier
                 .padding(vertical = Dp(1f)),
@@ -239,10 +239,10 @@ private fun ChapterInfo(
 
     val haptic = LocalHapticFeedback.current
 
-    val lowContrast = MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.disabledAlphaLowContrast)
+    val lowContrast = MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.disabledAlphaLowContrast)
     val (textColor, secondaryTextColor) = when (read) {
         true -> lowContrast to lowContrast
-        false -> MaterialTheme.colorScheme.onSurface to MaterialTheme.colorScheme.onSurface.copy(alpha = NekoColors.mediumAlphaLowContrast)
+        false -> MaterialTheme.colorScheme.onSurface to MaterialTheme.colorScheme.onSurface.copy(alpha = VietGaColors.mediumAlphaLowContrast)
     }
 
     val rowColor = when (dropdown) {

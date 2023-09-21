@@ -3,7 +3,7 @@ package eu.kanade.tachiyomi.data.external
 import androidx.annotation.DrawableRes
 import androidx.core.text.isDigitsOnly
 import eu.kanade.tachiyomi.R
-import org.nekomanga.constants.MdConstants
+import org.nekomanga.util.Constants
 
 data class AnimePlanet(override val id: String) : ExternalLink() {
     override val name = "AnimePlanet"
@@ -59,14 +59,14 @@ data class Dex(override val id: String) : ExternalLink() {
     override val name = "MangaDex"
     override val logo = R.drawable.ic_tracker_mangadex_logo
     override val logoColor: Long = 0xFF2B3035
-    override fun getUrl() = "${MdConstants.baseUrl}/title/$id"
+    override fun getUrl() = "${Constants.baseUrl}/title/$id"
 }
 
 data class DexComments(override val id: String) : ExternalLink() {
     override val name = "Comments"
     override val logo = R.drawable.ic_tracker_mangadex_logo
     override val logoColor: Long = 0xFF2B3035
-    override fun getUrl() = "${MdConstants.forumUrl}${id}"
+    override fun getUrl() = "${Constants.forumUrl}${id}"
 }
 
 data class DexApi(override val id: String) : ExternalLink() {
@@ -74,7 +74,7 @@ data class DexApi(override val id: String) : ExternalLink() {
     override val logo = R.drawable.ic_tracker_mangadex_logo
     override val logoColor: Long = 0xFF2B3035
     override fun getUrl() =
-        "${MdConstants.Api.baseUrl}/manga/$id/feed?limit=500&contentRating[]=${MdConstants.ContentRating.safe}&contentRating[]=${MdConstants.ContentRating.suggestive}&contentRating[]=${MdConstants.ContentRating.erotica}&contentRating[]=${MdConstants.ContentRating.pornographic}&includes[]=${MdConstants.Types.scanlator}&order[volume]=desc&order[chapter]=desc"
+        "${Constants.Api.baseUrl}/manga/$id/feed?limit=500&contentRating[]=${Constants.ContentRating.safe}&contentRating[]=${Constants.ContentRating.suggestive}&contentRating[]=${Constants.ContentRating.erotica}&contentRating[]=${Constants.ContentRating.pornographic}&includes[]=${Constants.Types.scanlator}&order[volume]=desc&order[chapter]=desc"
 }
 
 data class Raw(override val id: String) : ExternalLink() {
